@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Première NSI - ISC carthage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Réinitialisation ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== Couleurs ===== */
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #1565c0;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --white: #fff;
+        }
+
+        /* ===== Barre de navigation ===== */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 24px;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+        }
+
+        .user-info {
+            font-size: 14px;
+        }
+
+        /* ===== Navigation principale ===== */
+        nav {
+            background-color: var(--primary-color);
+            padding: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* ===== Conteneur principal ===== */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        /* ===== Sidebar ===== */
+        aside {
+            width: 250px;
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        aside h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside li {
+            margin-bottom: 8px;
+        }
+
+        aside a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px;
+            display: block;
+            border-radius: 4px;
+        }
+
+        aside a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* ===== Contenu principal ===== */
+        main {
+            flex: 1;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            list-style: decimal;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course-list li {
+            margin-bottom: 10px;
+        }
+
+        .course-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .course-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Markdown Style ===== */
+        .markdown-content {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .markdown-content pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+
+        .markdown-content code {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+            }
+            nav ul {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Première NSI</h1>
+            </div>
+            <div class="user-info">
+                <i class="fas fa-user"></i>
+                <span>helali aziz</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#"><i class="fas fa-code"></i> T1 Bases de Python</a></li>
+            <li><a href="#"><i class="fas fa-database"></i> T2 Représentation des données</a></li>
+            <li><a href="#"><i class="fas fa-ellipsis-h"></i> Autres</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <h2>T1 Bases de Python</h2>
+            <ul>
+                <li><a href="cours/variables.html">1. Variables</a></li>
+                <li><a href="cours/boucles.html">2. Boucles</a></li>
+                <li><a href="cours/conditionnelles.html">3. Conditionnelles</a></li>
+                <li><a href="cours/fonctions.html">4. Fonctions</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h1>Bienvenue sur mon site de cours NSI !</h1>
+            <p>Ce site contient les cours de Première NSI pour les élèves de l'ISC</p>
+            <h2>Thème 1 : Bases de Python</h2>
+            <ol class="course-list">
+                <li><a href="cours/variables.html">Variables</a></li>
+                <li><a href="cours/boucles.html">Boucles</a></li>
+                <li><a href="cours/conditionnelles.html">Conditionnelles</a></li>
+                <li><a href="cours/fonctions.html">Fonctions</a></li>
+            </ol>
+        </main>
+    </div>
+</body>
+</html>
