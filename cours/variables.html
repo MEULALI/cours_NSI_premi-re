@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables - Première NSI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Première NSI</h1>
+            </div>
+            <div class="user-info">
+                <i class="fas fa-user"></i>
+                <span>helali aziz</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#"><i class="fas fa-code"></i> T1 Bases de Python</a></li>
+            <li><a href="#"><i class="fas fa-database"></i> T2 Représentation des données</a></li>
+            <li><a href="#"><i class="fas fa-ellipsis-h"></i> Autres</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <h2>T1 Bases de Python</h2>
+            <ul>
+                <li><a href="variables.html">1. Variables</a></li>
+                <li><a href="boucles.html">2. Boucles</a></li>
+                <li><a href="conditionnelles.html">3. Conditionnelles</a></li>
+                <li><a href="fonctions.html">4. Fonctions</a></li>
+            </ul>
+        </aside>
+
+        <main class="markdown-content">
+            <h1>1. Variables en Python</h1>
+            <p>Une <strong>variable</strong> est un espace mémoire qui stocke une valeur.</p>
+
+            <h2>Déclaration d'une variable</h2>
+            <p>En Python, on déclare une variable avec le symbole <code>=</code>.</p>
+            <pre><code>age = 18
+nom = "Alice"
+note = 15.5</code></pre>
+
+            <h2>Types de variables</h2>
+            <ul>
+                <li><strong>Entier</strong> (<code>int</code>) : <code>42</code></li>
+                <li><strong>Flottant</strong> (<code>float</code>) : <code>3.14</code></li>
+                <li><strong>Chaîne de caractères</strong> (<code>str</code>) : <code>"Bonjour"</code></li>
+                <li><strong>Booléen</strong> (<code>bool</code>) : <code>True</code> ou <code>False</code></li>
+            </ul>
+
+            <h2>Exercices</h2>
+            <ol>
+                <li>Créez une variable <code>prix</code> avec la valeur <code>19.99</code> et affichez-la.</li>
+                <li>Créez deux variables <code>a</code> et <code>b</code> avec les valeurs <code>5</code> et <code>10</code>, puis affichez leur somme.</li>
+            </ol>
+
+            <details>
+                <summary>Voir les solutions</summary>
+                <pre><code># Exercice 1
+prix = 19.99
+print(prix)
+
+# Exercice 2
+a = 5
+b = 10
+print(a + b)</code></pre>
+            </details>
+        </main>
+    </div>
+</body>
+</html>
