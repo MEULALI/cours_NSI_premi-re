@@ -1,258 +1,404 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Première NSI - ISC Carthage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ===== Réinitialisation ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
 
-        /* ===== Couleurs ===== */
-        :root {
-            --primary-color: #1e88e5;
-            --secondary-color: #1565c0;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --white: #fff;
-        }
+```
+<meta charset="UTF-8">
 
-        /* ===== Barre de navigation ===== */
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+<title>Première NSI | ISC Carthage</title>
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+<link rel="stylesheet" href="css/style.css">
+```
 
-        .logo i {
-            font-size: 24px;
-        }
-
-        .logo h1 {
-            font-size: 20px;
-        }
-
-        .user-info {
-            font-size: 14px;
-        }
-
-        /* ===== Navigation principale ===== */
-        nav {
-            background-color: var(--primary-color);
-            padding: 0;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* ===== Conteneur principal ===== */
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-        }
-
-        /* ===== Sidebar ===== */
-        aside {
-            width: 250px;
-            background-color: var(--light-gray);
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        aside h2 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        aside ul {
-            list-style: none;
-        }
-
-        aside li {
-            margin-bottom: 8px;
-        }
-
-        aside a {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 8px;
-            display: block;
-            border-radius: 4px;
-        }
-
-        aside a:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        /* ===== Contenu principal ===== */
-        main {
-            flex: 1;
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        main h1 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .course-list {
-            list-style: decimal;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .course-list li {
-            margin-bottom: 10px;
-        }
-
-        .course-list a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .course-list a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== Markdown Style ===== */
-        .markdown-content {
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .markdown-content h1,
-        .markdown-content h2,
-        .markdown-content h3 {
-            color: var(--primary-color);
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .markdown-content pre {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 15px;
-        }
-
-        .markdown-content code {
-            font-family: 'Courier New', monospace;
-            background-color: #f5f5f5;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            aside {
-                width: 100%;
-            }
-            nav ul {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
 </head>
+
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                <h1>Première NSI</h1>
-            </div>
-            <div class="user-info">
-                <i class="fas fa-user"></i>
-                <span>M.HELALI</span>
-            </div>
+
+```
+<!-- =========================
+     EN-TÊTE
+========================== -->
+
+<header>
+
+    <div class="logo-titre">
+
+        <div class="logo-nsi">
+            &lt;/&gt;
         </div>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="#"><i class="fas fa-code"></i> T1:Bases de Python</a></li>
-            <li><a href="#"><i class="fas fa-database"></i> T2:Représentation des données</a></li>
-            <li><a href="#"><i class="fas fa-ellipsis-h"></i> T3:Architecture matérielle</a></li>
-            <li><a href="#"><i class="fas fa-ellipsis-h"></i> T4:Algorithmique</a></li>
-            <li><a href="#"><i class="fas fa-ellipsis-h"></i> T4:T6 IHM sur le webTraitement de données</a></li>
-            <li><a href="#"><i class="fas fa-ellipsis-h"></i> T6: IHM sur le web</a></li>
-            <li><a href="#"><i class="fas fa-ellipsis-h"></i> Mini-projets</a></li>
-            
-        </ul>
-    </nav>
+        <div>
 
-    <div class="container">
-        <aside>
-            <h2>T1 Bases de Python</h2>
-            <ul>
-                <li><a href="cours/variables.html">1. Variables</a></li>
-                <li><a href="cours/boucles.html">2. Boucles</a></li>
-                <li><a href="cours/conditionnelles.html">3. Conditionnelles</a></li>
-                <li><a href="cours/fonctions.html">4. Fonctions</a></li>
-            </ul>
-        </aside>
+            <h1>Première NSI</h1>
 
-        <main>
-            <h1>cours de  NSI Première</h1>
+            <p>Numérique et Sciences Informatiques</p>
 
-            <h2>Thème 1 : Bases de Python</h2>
-            <ol class="course-list">
-                <li><a href="cours/variables.html">Variables</a></li>
-                <li><a href="cours/boucles.html">Boucles</a></li>
-                <li><a href="cours/conditionnelles.html">Conditionnelles</a></li>
-                <li><a href="cours/fonctions.html">Fonctions</a></li>
-            </ol>
-        </main>
+        </div>
+
     </div>
+
+
+    <div class="enseignant">
+        👨‍🏫 M. HELALI
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     NAVIGATION PRINCIPALE
+========================== -->
+
+<nav>
+
+    <a href="index.html" class="active">
+        🏠 Accueil
+    </a>
+
+    <a href="python.html">
+        🐍 Python
+    </a>
+
+    <a href="donnees.html">
+        💾 Données
+    </a>
+
+    <a href="architecture.html">
+        🖥️ Architecture
+    </a>
+
+    <a href="algorithmique.html">
+        🧠 Algorithmique
+    </a>
+
+    <a href="web.html">
+        🌐 Web
+    </a>
+
+    <a href="projets.html">
+        🚀 Mini-projets
+    </a>
+
+</nav>
+
+
+
+<!-- =========================
+     CONTENU
+========================== -->
+
+<div class="page-container">
+
+
+    <!-- MENU LATÉRAL -->
+
+    <aside>
+
+        <h2>📚 Programme</h2>
+
+        <div class="menu-theme">
+
+            <h3>🐍 T1 — Bases de Python</h3>
+
+            <a href="cours/variables.html">
+                1. Variables
+            </a>
+
+            <a href="cours/conditionnelles.html">
+                2. Conditionnelles
+            </a>
+
+            <a href="cours/boucles.html">
+                3. Boucles
+            </a>
+
+            <a href="cours/fonctions.html">
+                4. Fonctions
+            </a>
+
+        </div>
+
+
+        <div class="menu-theme">
+
+            <h3>💾 T2 — Données</h3>
+
+            <a href="donnees.html">
+                Représentation des données
+            </a>
+
+        </div>
+
+
+        <div class="menu-theme">
+
+            <h3>🖥️ T3 — Architecture</h3>
+
+            <a href="architecture.html">
+                Architecture matérielle
+            </a>
+
+        </div>
+
+
+        <div class="menu-theme">
+
+            <h3>🧠 T4 — Algorithmique</h3>
+
+            <a href="algorithmique.html">
+                Algorithmique
+            </a>
+
+        </div>
+
+
+        <div class="menu-theme">
+
+            <h3>🌐 T5 — Web</h3>
+
+            <a href="web.html">
+                IHM sur le Web
+            </a>
+
+        </div>
+
+
+        <div class="menu-theme">
+
+            <h3>🚀 Projets</h3>
+
+            <a href="projets.html">
+                Mini-projets
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- CONTENU PRINCIPAL -->
+
+    <main>
+
+
+        <!-- BANNIÈRE -->
+
+        <section class="hero-nsi">
+
+            <div class="hero-code">
+
+                <span>&lt;</span>
+                <span>/</span>
+                <span>&gt;</span>
+
+            </div>
+
+            <h2>Première NSI</h2>
+
+            <p>
+                Numérique et Sciences Informatiques
+            </p>
+
+            <p class="hero-description">
+                Apprendre à programmer, comprendre les données,
+                explorer les réseaux et construire des projets numériques.
+            </p>
+
+        </section>
+
+
+
+        <!-- BIENVENUE -->
+
+        <section class="section">
+
+            <h2>💻 Bienvenue dans votre espace NSI</h2>
+
+            <p>
+                Ce site rassemble les cours, activités, exercices,
+                travaux pratiques et projets réalisés en Première
+                Numérique et Sciences Informatiques.
+            </p>
+
+            <p>
+                Vous pouvez utiliser ce site pour consulter les cours,
+                retrouver les activités réalisées en classe et
+                approfondir les notions étudiées.
+            </p>
+
+        </section>
+
+
+
+        <!-- THÈMES -->
+
+        <section class="section">
+
+            <h2>📚 Les thèmes du programme</h2>
+
+
+            <div class="theme-grid">
+
+
+                <a href="python.html" class="theme-card">
+
+                    <div class="theme-icon">🐍</div>
+
+                    <h3>T1 — Python</h3>
+
+                    <p>
+                        Variables, conditions, boucles,
+                        fonctions et programmation.
+                    </p>
+
+                    <span>Accéder au thème →</span>
+
+                </a>
+
+
+
+                <a href="donnees.html" class="theme-card">
+
+                    <div class="theme-icon">💾</div>
+
+                    <h3>T2 — Données</h3>
+
+                    <p>
+                        Représentation, stockage et traitement
+                        des données.
+                    </p>
+
+                    <span>Accéder au thème →</span>
+
+                </a>
+
+
+
+                <a href="architecture.html" class="theme-card">
+
+                    <div class="theme-icon">🖥️</div>
+
+                    <h3>T3 — Architecture</h3>
+
+                    <p>
+                        Ordinateurs, processeur, mémoire
+                        et systèmes informatiques.
+                    </p>
+
+                    <span>Accéder au thème →</span>
+
+                </a>
+
+
+
+                <a href="algorithmique.html" class="theme-card">
+
+                    <div class="theme-icon">🧠</div>
+
+                    <h3>T4 — Algorithmique</h3>
+
+                    <p>
+                        Concevoir, analyser et programmer
+                        des algorithmes.
+                    </p>
+
+                    <span>Accéder au thème →</span>
+
+                </a>
+
+
+
+                <a href="web.html" class="theme-card">
+
+                    <div class="theme-icon">🌐</div>
+
+                    <h3>T5 — Web</h3>
+
+                    <p>
+                        HTML, CSS, JavaScript et interfaces
+                        homme-machine.
+                    </p>
+
+                    <span>Accéder au thème →</span>
+
+                </a>
+
+
+
+                <a href="projets.html" class="theme-card">
+
+                    <div class="theme-icon">🚀</div>
+
+                    <h3>Mini-projets</h3>
+
+                    <p>
+                        Mettre en pratique les connaissances
+                        à travers des projets.
+                    </p>
+
+                    <span>Voir les projets →</span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONSEIL -->
+
+        <section class="conseil">
+
+            <div class="conseil-icon">
+                💡
+            </div>
+
+            <div>
+
+                <h2>Conseil</h2>
+
+                <p>
+                    En NSI, il est important de pratiquer.
+                    N'hésitez pas à refaire les exercices,
+                    modifier les programmes et expérimenter.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================
+     PIED DE PAGE
+========================== -->
+
+<footer>
+
+    <p>
+        Première NSI — École Internationale de Carthage
+    </p>
+
+    <p>
+        Cours et ressources numériques — M. HELALI
+    </p>
+
+</footer>
+```
+
 </body>
+
 </html>
