@@ -1,398 +1,203 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Première NSI - ISC Carthage</title>
+    <title>Classe à Enjeux Maritimes | ISC</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <!-- =========================
-         EN-TÊTE
+         BARRE DE NAVIGATION
     ========================== -->
 
-    <header class="site-header">
+    <header>
 
-        <div class="header-container">
+        <div class="logo-titre">
 
-            <!-- Logo -->
-            <div class="logo">
-                <img src="images/logo.png" alt="Logo ISC">
-            </div>
+            <!-- Logo de l'école -->
+            <img src="images/logo.png" alt="Logo de l'École Internationale de Carthage">
 
-            <!-- Titre -->
-            <div class="header-title">
-                <h1>Première NSI</h1>
+            <div>
+                <h1>Classe à Enjeux Maritimes</h1>
 
-                <p>
-                    Numérique et Sciences Informatiques
-                </p>
+                <h2 dir="rtl" lang="ar">
+                الفصل الدراسي للقضايا البحرية
+                </h2>
 
-                <span>
-                    👨‍🏫 M. HELALI
-                </span>
+                <p>École Internationale de Carthage</p>
             </div>
 
         </div>
+
+
+        <nav>
+
+            <a href="index.html" class="active">Accueil</a>
+
+            <a href="projet.html">Le projet</a>
+
+            <a href="calendrier.html">Calendrier</a>
+
+            <a href="activites.html">Activités</a>
+
+            <a href="sorties.html">Sorties en mer</a>
+
+            <a href="productions.html">Productions des élèves</a>
+
+            <a href="actualites.html">Actualités</a>
+
+            <a href="ressources.html">Ressources</a>
+
+        </nav>
 
     </header>
 
 
     <!-- =========================
-         MENU DE NAVIGATION
+         PAGE D'ACCUEIL
     ========================== -->
 
-    <nav class="navbar">
+    <main>
 
-        <div class="nav-container">
+        <!-- Grande image d'accueil -->
 
-            <a href="index.html" class="active">
-                🏠 Accueil
-            </a>
+        <section class="hero">
 
-            <a href="python.html">
-                🐍 Python
-            </a>
+            
 
-            <a href="donnees.html">
-                💾 Données
-            </a>
+            <div class="hero-texte">
 
-            <a href="architecture.html">
-                💻 Architecture
-            </a>
+                <h2>Classe à Enjeux Maritimes</h2>
 
-            <a href="algorithmique.html">
-                🧠 Algorithmique
-            </a>
+                <p>
+                    Une année pour découvrir, explorer et comprendre
+                    le monde maritime.
+                </p>
 
-            <a href="web.html">
-                🌐 Web
-            </a>
-
-            <a href="projets.html">
-                🚀 Mini-projets
-            </a>
-
-        </div>
-
-    </nav>
- <!-- =========================
-             BARRE LATÉRALE
-        ========================== -->
-
-        <aside class="sidebar">
-
-            <h2>📚 Programme</h2>
-
-
-            <div class="menu-section">
-
-                <h3>🐍 T1 — Bases de Python</h3>
-
-                <a href="cours/variables.html">
-                    1. Variables
-                </a>
-
-                <a href="cours/conditionnelles.html">
-                    2. Conditionnelles
-                </a>
-
-                <a href="cours/boucles.html">
-                    3. Boucles
-                </a>
-
-                <a href="cours/fonctions.html">
-                    4. Fonctions
+                <a href="projet.html" class="bouton">
+                    Découvrir le projet
                 </a>
 
             </div>
 
-
-            <div class="menu-section">
-
-                <h3>💾 T2 — Données</h3>
-
-                <a href="donnees.html">
-                    Représentation des données
-                </a>
-
-            </div>
+        </section>
 
 
-            <div class="menu-section">
+        <!-- Présentation -->
 
-                <h3>💻 T3 — Architecture</h3>
+        <section class="presentation">
 
-                <a href="architecture.html">
-                    Architecture matérielle
-                </a>
+            <h2>🌊 Notre projet</h2>
 
-            </div>
+            <p>
+                La Classe à Enjeux Maritimes propose aux élèves une année
+                consacrée à la découverte du monde maritime, de ses enjeux,
+                de ses métiers et de son environnement.
+            </p>
 
+            <p>
+                À travers des activités scientifiques, numériques,
+                culturelles et des sorties sur le terrain, les élèves
+                seront amenés à observer, expérimenter, rechercher,
+                produire et partager leurs découvertes.
+            </p>
 
-            <div class="menu-section">
-
-                <h3>🧠 T4 — Algorithmique</h3>
-
-                <a href="algorithmique.html">
-                    Algorithmes
-                </a>
-
-            </div>
-
-
-            <div class="menu-section">
-
-                <h3>🌐 T5 — Web</h3>
-
-                <a href="web.html">
-                    HTML / CSS / JavaScript
-                </a>
-
-            </div>
+        </section>
 
 
-            <div class="menu-section">
+        <!-- Les grands axes -->
 
-                <h3>🚀 Projets</h3>
+        <section class="axes">
 
-                <a href="projets.html">
-                    Mini-projets
-                </a>
+            <h2>Nos grands axes</h2>
 
-            </div>
+            <div class="cartes">
 
-        </aside>
+                <div class="carte">
 
-    <!-- =========================
-         CONTENU PRINCIPAL
-    ========================== -->
+                    <div class="icone">🌊</div>
 
-    <div class="page-container">
-
-
-       
-
-
-        <!-- =========================
-             CONTENU
-        ========================== -->
-
-        <main class="main-content">
-
-
-            <!-- BLOC D'ACCUEIL -->
-
-            <section class="hero">
-
-                <div class="hero-content">
-
-                    <div class="code-symbol">
-                        &lt;/&gt;
-                    </div>
-
-                    <h1>
-                        Première NSI
-                    </h1>
-
-                    <h2>
-                        Numérique et Sciences Informatiques
-                    </h2>
+                    <h3>Découvrir</h3>
 
                     <p>
-                        Apprendre à programmer, comprendre les données,
-                        explorer les réseaux et construire des projets numériques.
+                        Découvrir le patrimoine maritime,
+                        les océans et le littoral.
                     </p>
 
                 </div>
 
-            </section>
 
+                <div class="carte">
 
-            <!-- BIENVENUE -->
+                    <div class="icone">🔬</div>
 
-            <section class="content-card">
+                    <h3>Explorer</h3>
 
-                <h2>
-                    💻 Bienvenue dans votre espace NSI
-                </h2>
-
-                <p>
-                    Bienvenue sur votre espace de cours de
-                    <strong>Numérique et Sciences Informatiques</strong>.
-                </p>
-
-                <p>
-                    Vous trouverez ici l'ensemble des cours,
-                    activités, exercices et mini-projets réalisés
-                    pendant l'année.
-                </p>
-
-            </section>
-
-
-            <!-- THÈMES -->
-
-            <section class="content-section">
-
-                <h2>📖 Les thèmes du programme</h2>
-
-
-                <div class="cards">
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">🐍</div>
-
-                        <h3>Python</h3>
-
-                        <p>
-                            Variables, conditions, boucles,
-                            fonctions et programmation.
-                        </p>
-
-                        <a href="python.html">
-                            Accéder au cours →
-                        </a>
-
-                    </article>
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">💾</div>
-
-                        <h3>Données</h3>
-
-                        <p>
-                            Représentation, traitement et
-                            organisation des données.
-                        </p>
-
-                        <a href="donnees.html">
-                            Accéder au cours →
-                        </a>
-
-                    </article>
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">💻</div>
-
-                        <h3>Architecture</h3>
-
-                        <p>
-                            Ordinateur, processeur, mémoire,
-                            réseaux et systèmes.
-                        </p>
-
-                        <a href="architecture.html">
-                            Accéder au cours →
-                        </a>
-
-                    </article>
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">🧠</div>
-
-                        <h3>Algorithmique</h3>
-
-                        <p>
-                            Algorithmes, recherche, tri,
-                            complexité et résolution de problèmes.
-                        </p>
-
-                        <a href="algorithmique.html">
-                            Accéder au cours →
-                        </a>
-
-                    </article>
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">🌐</div>
-
-                        <h3>Web</h3>
-
-                        <p>
-                            HTML, CSS, JavaScript et
-                            fonctionnement du Web.
-                        </p>
-
-                        <a href="web.html">
-                            Accéder au cours →
-                        </a>
-
-                    </article>
-
-
-                    <article class="theme-card">
-
-                        <div class="card-icon">🚀</div>
-
-                        <h3>Mini-projets</h3>
-
-                        <p>
-                            Mettre en pratique les connaissances
-                            à travers différents projets.
-                        </p>
-
-                        <a href="projets.html">
-                            Voir les projets →
-                        </a>
-
-                    </article>
+                    <p>
+                        Observer, expérimenter et comprendre
+                        les phénomènes liés au monde maritime.
+                    </p>
 
                 </div>
 
-            </section>
+
+                <div class="carte">
+
+                    <div class="icone">💻</div>
+
+                    <h3>Numérique</h3>
+
+                    <p>
+                        Utiliser les outils numériques pour
+                        rechercher, analyser et communiquer.
+                    </p>
+
+                </div>
 
 
-            <!-- CONSEIL -->
+                <div class="carte">
 
-            <section class="info-box">
+                    <div class="icone">🌱</div>
 
-                <h2>💡 Conseil</h2>
+                    <h3>Agir</h3>
 
-                <p>
-                    Pensez à consulter régulièrement cet espace.
-                    Les nouveaux cours, exercices et activités
-                    seront ajoutés progressivement pendant l'année.
-                </p>
+                    <p>
+                        Réfléchir aux enjeux environnementaux
+                        et à la protection des océans.
+                    </p>
 
-            </section>
+                </div>
 
-        </main>
+            </div>
 
-    </div>
+        </section>
+
+    </main>
 
 
     <!-- =========================
          PIED DE PAGE
     ========================== -->
 
-    <footer class="footer">
+    <footer>
 
         <p>
-            Première NSI — École Internationale de Carthage
+            Classe à Enjeux Maritimes — École Internationale de Carthage
         </p>
 
         <p>
-            M. HELALI
+            Année scolaire 2026–2027
         </p>
 
     </footer>
 
 
 </body>
+
 </html>
