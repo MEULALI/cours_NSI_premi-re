@@ -1,6 +1,6 @@
-/* =====================================================
-   RÉINITIALISATION
-===================================================== */
+/* =================================
+   STYLE GÉNÉRAL
+================================= */
 
 * {
     margin: 0;
@@ -8,519 +8,246 @@
     box-sizing: border-box;
 }
 
-
-html {
-    scroll-behavior: smooth;
-}
-
-
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f7f9;
-    color: #333;
+    background-color: #f4f8fa;
+    color: #17324d;
     line-height: 1.6;
 }
 
 
-/* =====================================================
-   EN-TÊTE
-===================================================== */
+/* =================================
+   BARRE DE NAVIGATION
+================================= */
 
-.site-header {
-    background-color: white;
-    border-bottom: 1px solid #e5e5e5;
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 
-.header-container {
-    max-width: 1400px;
-    margin: auto;
+/* Logo + titre */
 
-    min-height: 140px;
-
+.logo-titre {
     display: flex;
     align-items: center;
-
-    padding: 15px 30px;
+    padding: 30px 10%;
+    gap: 30px;
 }
 
-
-/* Logo ISC */
-
-.logo {
-    width: 150px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 35px;
-}
-
-
-.logo img {
-    max-width: 140px;
-    max-height: 100px;
-
+.logo-titre img {
+    width: 100px;
+    height: 100px;
     object-fit: contain;
 }
 
-
-/* Titre */
-
-.header-title {
-    border-left: 2px solid #0b7199;
-
-    padding-left: 30px;
-}
-
-
-.header-title h1 {
-    font-size: 32px;
-    color: #006b91;
-
-    margin-bottom: 2px;
-}
-
-
-.header-title p {
-    font-size: 17px;
-    color: #6b8794;
-
-    margin-bottom: 10px;
-}
-
-
-.header-title span {
-    font-size: 15px;
-    color: #08739b;
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.navbar {
-    background-color: #006b91;
-
-    width: 100%;
-}
-
-
-.nav-container {
-    max-width: 1400px;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-
-    padding-left: 20px;
-}
-
-
-.nav-container a {
-    display: block;
-
-    color: white;
-
-    text-decoration: underline;
-
-    padding: 14px 18px;
-
-    font-size: 15px;
-
-    transition: all 0.25s ease;
-}
-
-
-.nav-container a:hover {
-    background-color: #00516f;
-
-    text-decoration: none;
-}
-
-
-.nav-container a.active {
-    background-color: #004b67;
-
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   STRUCTURE PAGE
-===================================================== */
-
-.page-container {
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    padding: 0 20px 40px;
-
-    display: grid;
-
-    grid-template-columns: 260px 1fr;
-
-    gap: 30px;
-
-    align-items: start;
-}
-
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.sidebar {
-    background-color: white;
-
-    margin-top: 0;
-
-    padding: 25px 22px;
-
-    border-radius: 0 0 15px 15px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-    position: sticky;
-    top: 15px;
-}
-
-
-.sidebar > h2 {
-    color: #006b91;
-
-    font-size: 24px;
-
-    margin-bottom: 25px;
-
-    text-align: center;
-}
-
-
-/* Sections */
-
-.menu-section {
-    margin-bottom: 28px;
-}
-
-
-.menu-section h3 {
-    color: #006b91;
-
-    font-size: 18px;
-
-    margin-bottom: 12px;
-
-    line-height: 1.4;
-}
-
-
-/* Liens */
-
-.menu-section a {
-    display: block;
-
-    color: #526875;
-
-    font-size: 14px;
-
-    padding: 7px 8px;
-
-    margin-bottom: 2px;
-
-    text-decoration: underline;
-
-    border-radius: 5px;
-
-    transition: all 0.2s ease;
-}
-
-
-.menu-section a:hover {
-    background-color: #eaf5f9;
-
-    color: #006b91;
-
-    padding-left: 14px;
-
-    text-decoration: none;
-}
-
-
-/* =====================================================
-   CONTENU PRINCIPAL
-===================================================== */
-
-.main-content {
-    min-width: 0;
-
-    padding-top: 0;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-    margin-top: 0;
-
-    min-height: 295px;
-
-    border-radius: 0 0 20px 20px;
-
-    background: linear-gradient(
-        135deg,
-        #005b78,
-        #087da4
-    );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-
-.hero-content {
-    max-width: 850px;
-
-    padding: 40px;
-}
-
-
-/* Symbole code */
-
-.code-symbol {
-    font-family: monospace;
-
-    font-size: 24px;
-
-    color: white;
-
-    margin-bottom: 10px;
-
-    opacity: 0.8;
-}
-
-
-/* Titre Hero */
-
-.hero h1 {
-    color: white;
-
-    font-size: 42px;
-
-    margin-bottom: 8px;
-}
-
-
-.hero h2 {
-    color: white;
-
-    font-size: 21px;
-
-    font-weight: normal;
-
-    margin-bottom: 12px;
-}
-
-
-.hero p {
-    color: white;
-
-    font-size: 17px;
-
-    max-width: 750px;
-
-    margin: auto;
-
-    opacity: 0.95;
-}
-
-
-/* =====================================================
-   CARTES DE CONTENU
-===================================================== */
-
-.content-card {
-    background-color: white;
-
-    margin-top: 30px;
-
-    padding: 35px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-
-.content-card h2 {
-    color: #006b91;
-
-    text-align: center;
-
-    font-size: 25px;
-
-    margin-bottom: 20px;
-}
-
-
-.content-card p {
-    max-width: 900px;
-
-    margin: 10px auto;
-
-    text-align: center;
-
-    color: #526875;
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.content-section {
-    background-color: white;
-
-    margin-top: 30px;
-
-    padding: 35px;
-}
-
-
-.content-section > h2 {
-    color: #006b91;
-
-    text-align: center;
-
-    margin-bottom: 30px;
-
+.logo-titre h1 {
+    color: #006994;
     font-size: 26px;
 }
 
-
-/* =====================================================
-   CARTES THÈMES
-===================================================== */
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 22px;
+.logo-titre p {
+    color: #607d8b;
+    font-size: 14px;
 }
 
 
-.theme-card {
-    background-color: #f8fbfc;
+/* Menu */
 
-    border: 1px solid #e2edf1;
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #87CEEB;
+}
 
-    border-radius: 12px;
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 15px;
+    transition: 0.3s;
+}
 
-    padding: 25px;
+nav a:hover {
+    background-color: #004d70;
+}
+
+nav a.active {
+    background-color: #003f5c;
+}
+
+
+/* =================================
+   GRANDE IMAGE D'ACCUEIL
+================================= */
+
+.hero {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+}
+
+.photo-accueil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Texte placé sur la photo */
+
+.hero-texte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     text-align: center;
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    background-color: rgba(0, 50, 75, 0.75);
+
+    color: white;
+
+    padding: 35px 50px;
+
+    border-radius: 12px;
+
+    width: 70%;
+    max-width: 800px;
 }
 
-
-.theme-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-
-.card-icon {
-    font-size: 36px;
-
-    margin-bottom: 10px;
-}
-
-
-.theme-card h3 {
-    color: #006b91;
-
-    font-size: 20px;
-
-    margin-bottom: 10px;
-}
-
-
-.theme-card p {
-    color: #627781;
-
-    font-size: 14px;
-
-    min-height: 70px;
-
+.hero-texte h2 {
+    font-size: 42px;
     margin-bottom: 15px;
 }
 
+.hero-texte p {
+    font-size: 21px;
+    margin-bottom: 25px;
+}
 
-.theme-card a {
-    color: #006b91;
+
+/* Bouton */
+
+.bouton {
+    display: inline-block;
+
+    background-color: #00a6c7;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
 
     font-weight: bold;
 
-    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bouton:hover {
+    background-color: #007f9b;
 }
 
 
-.theme-card a:hover {
-    text-decoration: underline;
+/* =================================
+   PRÉSENTATION
+================================= */
+
+.presentation {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.presentation h2 {
+    color: #006994;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.presentation p {
+    margin-bottom: 15px;
+    font-size: 17px;
 }
 
 
-/* =====================================================
-   BLOC CONSEIL
-===================================================== */
+/* =================================
+   AXES DU PROJET
+================================= */
 
-.info-box {
-    margin-top: 30px;
+.axes {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 25px;
+}
 
-    padding: 25px 30px;
-
-    background-color: #eaf5f9;
-
-    border-left: 5px solid #087da4;
+.axes h2 {
+    text-align: center;
+    color: #006994;
+    font-size: 32px;
+    margin-bottom: 35px;
 }
 
 
-.info-box h2 {
-    color: #006b91;
+/* Conteneur des cartes */
 
+.cartes {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Une carte */
+
+.carte {
+    background-color: white;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.carte:hover {
+    transform: translateY(-5px);
+}
+
+.carte .icone {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.carte h3 {
+    color: #006994;
     margin-bottom: 10px;
 }
 
 
-.info-box p {
-    color: #526875;
-}
-
-
-/* =====================================================
+/* =================================
    PIED DE PAGE
-===================================================== */
+================================= */
 
-.footer {
-    background-color: #004b67;
+footer {
+    margin-top: 70px;
+
+    background-color: #003f5c;
 
     color: white;
 
@@ -528,115 +255,152 @@ body {
 
     padding: 25px;
 
-    margin-top: 20px;
+    font-size: 14px;
 }
 
 
-.footer p {
-    margin: 4px;
-}
+/* =================================
+   VERSION TABLETTE / MOBILE
+================================= */
 
+@media screen and (max-width: 900px) {
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media screen and (max-width: 1000px) {
-
-    .page-container {
-        grid-template-columns: 220px 1fr;
-
-        gap: 20px;
-    }
-
-    .cards {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .cartes {
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 600px) {
 
-    .header-container {
-        flex-direction: column;
-
-        text-align: center;
-
-        padding: 20px;
+    .logo-titre h1 {
+        font-size: 20px;
     }
 
-
-    .logo {
-        margin-right: 0;
-
-        margin-bottom: 15px;
+    .logo-titre img {
+        width: 55px;
+        height: 55px;
     }
 
-
-    .header-title {
-        border-left: none;
-
-        border-top: 2px solid #0b7199;
-
-        padding-left: 0;
-
-        padding-top: 15px;
+    nav a {
+        padding: 10px;
+        font-size: 13px;
     }
-
-
-    .nav-container {
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        padding: 0;
-    }
-
-
-    .nav-container a {
-        padding: 11px 12px;
-
-        font-size: 14px;
-    }
-
-
-    .page-container {
-        display: block;
-
-        padding: 0 12px 30px;
-    }
-
-
-    .sidebar {
-        position: static;
-
-        margin-bottom: 20px;
-
-        border-radius: 12px;
-    }
-
 
     .hero {
-        border-radius: 12px;
-
-        min-height: 270px;
+        height: 400px;
     }
 
-
-    .hero h1 {
-        font-size: 32px;
+    .hero-texte {
+        width: 90%;
+        padding: 25px 15px;
     }
 
-
-    .hero h2 {
-        font-size: 18px;
+    .hero-texte h2 {
+        font-size: 28px;
     }
 
+    .hero-texte p {
+        font-size: 17px;
+    }
 
-    .cards {
+    .cartes {
         grid-template-columns: 1fr;
     }
 
+}
+/* =================================
+   CENTRAGE DU CONTENU
+================================= */
+
+.contenu-section {
+    max-width: 1000px;
+    margin: 70px auto;
+    padding: 35px 45px;
+
+    background-color: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+
+/* Les paragraphes */
+
+.contenu-section p {
+    max-width: 850px;
+    margin: 0 auto 18px;
+}
+
+
+/* =================================
+   EFFET AU SURVOL DES CARTES
+================================= */
+
+.carte {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    cursor: pointer;
+}
+
+.carte:hover {
+    transform: translateY(-10px) scale(1.02);
+
+    box-shadow:
+        0 15px 30px rgba(0, 80, 120, 0.18);
+}
+
+
+/* =================================
+   EFFET SUR LES ÉTAPES
+================================= */
+
+.etape {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.etape:hover {
+    transform: translateX(8px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 80, 120, 0.15);
+}
+
+
+/* =================================
+   TITRES
+================================= */
+
+.contenu-section h2 {
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 35px;
+}
+
+
+/* Petite ligne sous les titres */
+
+.contenu-section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 4px;
+
+    background-color: #00a6c7;
+
+    margin: 10px auto 0;
+
+    border-radius: 5px;
 }
