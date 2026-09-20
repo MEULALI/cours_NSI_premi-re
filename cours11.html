@@ -1,218 +1,40 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cours1</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-  
-  <style>
-    /* ========== POLICES ET COULEURS DE BASE ========== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* ========== TITRES ========== */
-h1 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin: 20px 0;
-}
+    <title>Cours NSI Première | ISC</title>
 
-h2 {
-    color: #2c3e50;
-    border-bottom: 1px solid #bdc3c7;
-    padding-bottom: 5px;
-    margin: 18px 0;
-}
-
-h3 {
-    color: #3498db;
-    margin: 15px 0;
-}
-
-h4, h5, h6 {
-    color: #2c3e50;
-    margin: 12px 0;
-}
-
-/* ========== LIENS ========== */
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ========== TABLEAUX ========== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-    font-size: 0.95em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 10px 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-    font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f0f8ff;
-}
-
-/* ========== BLOCS DE CODE ========== */
-.code-block, pre {
-    background: #f5f5f5;
-    padding: 12px;
-    border-radius: 4px;
-    margin: 15px 0;
-    overflow-x: auto;
-    border-left: 3px solid #3498db;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-}
-
-/* ========== BOUTONS ========== */
-.btn-execute {
-    background: #27ae60;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-top: 8px;
-}
-
-.btn-execute:hover {
-    background: #219653;
-}
-
-/* ========== ONGLETS ========== */
-.nav-tabs {
-    border-bottom: 1px solid #ddd;
-    margin: 20px 0;
-}
-
-.nav-tabs .nav-link {
-    padding: 8px 15px;
-    color: #3498db;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
-    margin-right: 5px;
-}
-
-.nav-tabs .nav-link.active {
-    background-color: #3498db;
-    color: white;
-    border-color: #ddd;
-    border-bottom-color: transparent;
-}
-
-.tab-content {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    background: white;
-}
-
-/* ========== SECTIONS ========== */
-.section {
-    background: white;
-    border-radius: 4px;
-    padding: 15px;
-    margin: 20px 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== QUIZ ========== */
-.quiz {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 4px;
-    margin: 15px 0;
-    border-left: 4px solid #3498db;
-}
-
-.quiz-question {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.quiz-option {
-    background: white;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-}
-
-.quiz-option:hover {
-    background: #f0f8ff;
-    border-color: #3498db;
-}
-
-/* ========== AUTRES ÉLÉMENTS ========== */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border-radius: 4px;
-}
-
-.diagram {
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    table {
-        font-size: 0.85em;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-}
-    
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="stackedit">
-  <nav>
+<body>
+
+    <!-- =========================
+         BARRE DE NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <div class="logo-titre">
+
+            <!-- Logo de l'école -->
+            <img src="images/logo.png" alt="Logo de l'École Internationale de Carthage">
+
+            <div>
+                <h1>Cours NSI Première</h1>
+
+                
+
+                <p>École Internationale de Carthage</p>
+            </div>
+
+        </div>
+
+
+        <nav>
 
             <a href="index.html" class="active">Accueil</a>
 
@@ -232,7 +54,11 @@ img {
             <a href="ressources.html">Ressources</a>
 
         </nav>
-  <div class="stackedit__left">
+
+    </header>
+
+
+   <div class="stackedit__left">
     <div class="stackedit__toc">
       
 <ul>
@@ -275,6 +101,35 @@ img {
 <li></li>
 </ul>
 </li>
+<li><a href="#exercices-sur-la-boucle--for-...-in">Exercices sur la boucle  for ... in</a>
+<ul>
+<li><a href="#exercice-1">Exercice 1</a></li>
+<li><a href="#exercice-2">Exercice 2</a></li>
+<li><a href="#exercice-3">Exercice 3</a></li>
+</ul>
+</li>
+<li><a href="#à-vous-">à vous !`</a>
+<ul>
+<li><a href="#exercice-4">Exercice 4</a></li>
+<li><a href="#exercice-5">Exercice 5</a></li>
+<li><a href="#exercice-7">Exercice 7</a></li>
+<li><a href="#exercice-8">Exercice 8</a></li>
+</ul>
+</li>
+<li><a href="#exercices-sur-la-boucle--while">Exercices sur la boucle  while</a>
+<ul>
+<li><a href="#exercice-1-1">Exercice 1</a></li>
+<li><a href="#exercice-2-1">Exercice 2</a></li>
+<li><a href="#exercice-3-1">Exercice 3</a></li>
+</ul>
+</li>
+<li><a href="#exercices--instruction-conditionnelle-if">Exercices : Instruction conditionnelle if</a>
+<ul>
+<li><a href="#exercice-1-2">Exercice 1</a></li>
+<li><a href="#exercice-2-2">Exercice 2</a></li>
+<li><a href="#exercice-3-2">Exercice 3</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -282,9 +137,6 @@ img {
   <div class="stackedit__right">
     <div class="stackedit__html">
       <h1 id="chapitre-n°1--constructions-de-base-pour-programmer-en-python">Chapitre n°1 : constructions de base pour programmer en Python</h1>
-<p><strong>Spe NSI</strong></p>
-<hr>
-<hr>
 <h2 id="✻-introduction">✻ Introduction</h2>
 <p>Dans ce chapitre, on présente les constructions qui constituent le <strong>noyau du langage de programmation Python</strong> :</p>
 <ul>
@@ -322,6 +174,9 @@ TypeError<span class="token punctuation">:</span> can only concatenate <span cla
 <pre><code>user@pc-$ python hello_world.py
 Hello world
 </code></pre>
+<blockquote>
+<p>📌 <strong>Conférence recommandée</strong> : <a href="https://tube.ac-lyon.fr/videos/watch/2f7065e3-13c7-432c-80cc-94e769d38272">Histoire des langages de programmation</a> par Judicaël Courant (Lycée du Parc, 2019).</p>
+</blockquote>
 <hr>
 <h2 id="environnements-pour-programmer-en-python">1.2 Environnements pour programmer en Python</h2>
 <h3 id="méthode">Méthode</h3>
@@ -361,43 +216,31 @@ Un objet Python est caractérisé par :</p>
 &lt;class 'int'&gt;
 </code></pre>
 <h3 id="types-de-base">Types de base</h3>
-
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Domaine de valeurs</th>
-<th>Opérateurs</th>
-<th>Exemple de littéraux</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int</td>
-<td>entiers signés</td>
-<td>+ - * // % **</td>
-<td>0 -4 842</td>
-</tr>
-<tr>
-<td>float</td>
-<td>sous-ensemble des décimaux</td>
-<td>+ - * / **</td>
-<td>0.0 -1.0 3.14</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>valeurs logiques</td>
-<td>not and or</td>
-<td>True False</td>
-</tr>
-<tr>
-<td>str</td>
-<td>chaînes de caractères</td>
-<td>+</td>
-<td>‘tb’ " ‘2.4’ ‘Bonjour’</td>
-</tr>
-</tbody>
-</table><blockquote>
+<p>Type</p>
+<p>Domaine de valeurs</p>
+<p>Opérateurs</p>
+<p>Exemples de littéraux</p>
+<p><code>int</code></p>
+<p>Entiers signés</p>
+<p>’<code>+ - * // % **</code></p>
+<p><code>0</code>, <code>-4</code>, <code>842</code></p>
+<p><code>float</code></p>
+<p>Décimaux</p>
+<p>’<code>+ - * / **</code></p>
+<p><code>0.0</code>, <code>-1.0</code>, <code>3.14</code></p>
+<p><code>bool</code></p>
+<p>Logique (<code>True</code>/<code>False</code>)</p>
+<p><code>not</code>, <code>and</code>, <code>or</code></p>
+<p><code>True</code>, <code>False</code></p>
+<p><code>str</code></p>
+<p>Chaînes de caractères</p>
+<p>’<code>+</code> (concaténation)</p>
+<p><code>'tb'</code>, <code>"2.4"</code>, <code>'Bonjour'</code></p>
+<p><code>None</code></p>
+<p>Type spécifique</p>
+<p>Aucun</p>
+<p><code>None</code></p>
+<blockquote>
 <p>⚠️ <strong>Priorité des opérateurs</strong> :</p>
 <ul>
 <li>L’<strong>exponentiation</strong> (<code>**</code>) a la priorité la plus élevée.</li>
@@ -453,6 +296,18 @@ y = x + 1  # y = 843
 <h3 id="méthode--tableau-détat">Méthode : Tableau d’état</h3>
 <p>Pour comprendre un programme, on peut tracer les valeurs des variables à chaque étape.</p>
 <p><strong>Exemple : Échange de valeurs entre <code>a</code> et <code>b</code></strong></p>
+<p>Instruction</p>
+<p><code>a</code></p>
+<p><code>b</code></p>
+<p>Ligne 1</p>
+<p>842</p>
+<p>'-</p>
+<p>Ligne 2</p>
+<p>842</p>
+<p>843</p>
+<p>Ligne 3</p>
+<p>843</p>
+<p>843</p>
 <p><strong>Solutions :</strong></p>
 <ol>
 <li>
@@ -466,34 +321,6 @@ a = b
 b = c
 </code></pre>
 </li>
-</ol>
-
-<table>
-<thead>
-<tr>
-<th><strong>Instruction</strong></th>
-<th><strong>a</strong></th>
-<th><strong>b</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ligne 1</td>
-<td>842</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Ligne 2</td>
-<td>842</td>
-<td>843</td>
-</tr>
-<tr>
-<td>Ligne 3</td>
-<td>843</td>
-<td>843</td>
-</tr>
-</tbody>
-</table><ol start="2">
 <li>
 <p>Avec déballage de tuple (plus “pythonique”) :</p>
 <p>python</p>
@@ -837,77 +664,37 @@ from math import *
 <li>Localement : <code>python3 -m pydoc -b</code> (lance un serveur web local).</li>
 </ul>
 <h3 id="module-random">Module <code>random</code></h3>
-
-<table>
-<thead>
-<tr>
-<th><strong>Fonction</strong></th>
-<th><strong>Spécification</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>random.randrange(a,b)</code></td>
-<td>Renvoie un entier aléatoire dans [a; b[</td>
-</tr>
-<tr>
-<td><code>random.randint(a,b)</code></td>
-<td>Renvoie un entier aléatoire dans [a; b]</td>
-</tr>
-<tr>
-<td><code>random.random()</code></td>
-<td>Renvoie un décimal aléatoire dans [0; 1[</td>
-</tr>
-<tr>
-<td><code>random.uniform(a,b)</code></td>
-<td>Renvoie un décimal aléatoire dans [a; b]</td>
-</tr>
-</tbody>
-</table><h3 id="module-turtle">Module <code>turtle</code></h3>
+<p>Fonction</p>
+<p>Spécification</p>
+<p><code>random.randrange(a,b)</code></p>
+<p>Entier aléatoire dans <code>[a; b[</code></p>
+<p><code>random.randint(a,b)</code></p>
+<p>Entier aléatoire dans <code>[a; b]</code></p>
+<p><code>random.random()</code></p>
+<p>Décimal aléatoire dans <code>[0; 1[</code></p>
+<p><code>random.uniform(a,b)</code></p>
+<p>Décimal aléatoire dans <code>[a; b]</code></p>
+<h3 id="module-turtle">Module <code>turtle</code></h3>
 <p>Permet de dessiner des figures géométriques avec une “tortue”.</p>
-
-<table>
-<thead>
-<tr>
-<th><strong>Fonction</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>turtle.goto(x, y)</code></td>
-<td>Déplace la tortue jusqu’au point de coordonnées <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><code>turtle.penup()</code></td>
-<td>Lève le crayon (pas de trace lors du déplacement).</td>
-</tr>
-<tr>
-<td><code>turtle.pendown()</code></td>
-<td>Baisse le crayon (la tortue laisse une trace).</td>
-</tr>
-<tr>
-<td><code>turtle.setheading(angle)</code></td>
-<td>Choisit l’angle d’orientation de la tortue en <strong>degrés</strong>.</td>
-</tr>
-<tr>
-<td><code>turtle.forward(n)</code></td>
-<td>Avance de <code>n</code> pixels selon l’orientation actuelle.</td>
-</tr>
-<tr>
-<td><code>turtle.left(a)</code></td>
-<td>Tourne à <strong>gauche</strong> de <code>a</code> degrés.</td>
-</tr>
-<tr>
-<td><code>turtle.right(a)</code></td>
-<td>Tourne à <strong>droite</strong> de <code>a</code> degrés.</td>
-</tr>
-<tr>
-<td><code>turtle.color("red")</code></td>
-<td>Change la couleur du crayon (ex: <code>"red"</code>, <code>"blue"</code>, <code>"green"</code>).</td>
-</tr>
-</tbody>
-</table><p><strong>Exemple 4 : Spirale avec <code>turtle</code></strong></p>
+<p>Fonction</p>
+<p>Spécification</p>
+<p><code>turtle.goto(x,y)</code></p>
+<p>Déplace la tortue en <code>(x, y)</code></p>
+<p><code>turtle.penup()</code></p>
+<p>Lève le crayon (pas de trace)</p>
+<p><code>turtle.pendown()</code></p>
+<p>Baisse le crayon (trace)</p>
+<p><code>turtle.setheading(a)</code></p>
+<p>Orienté à <code>a</code> degrés</p>
+<p><code>turtle.forward(n)</code></p>
+<p>Avance de <code>n</code> pixels</p>
+<p><code>turtle.left(a)</code></p>
+<p>Tourne à gauche de <code>a</code> degrés</p>
+<p><code>turtle.right(a)</code></p>
+<p>Tourne à droite de <code>a</code> degrés</p>
+<p><code>turtle.color("red")</code></p>
+<p>Change la couleur du crayon</p>
+<p><strong>Exemple 4 : Spirale avec <code>turtle</code></strong></p>
 <p>python</p>
 <p>Copier</p>
 <pre><code>import turtle as tt
@@ -957,9 +744,139 @@ tt.exitonclick()  # Ferme la fenêtre au clic
 <li>Utiliser des <code>print</code> pour tracer les valeurs.</li>
 <li>Utiliser un <strong>débogueur</strong> (points d’arrêt, outils de l’IDE).</li>
 </ul>
+<hr>
+<h1 id="exercices-sur-la-boucle--for-...-in">Exercices sur la boucle  <code>for ... in</code></h1>
+<h2 id="exercice-1">Exercice 1</h2>
+<p>On donne une liste d’acteurs :</p>
+<p><code>liste_acteurs = ['Tahar', 'Omar', 'Guillaume', 'Swann', 'Alex', 'Roschdy']</code></p>
+<p>Utilisez cette liste pour produire la sortie suivante:</p>
+<p><code>Tahar a eu le César du meilleur acteur Omar a eu le César du meilleur acteur Guillaume a eu le César du meilleur acteur Swann a eu le César du meilleur acteur Alex a eu le César du meilleur acteur Roschdy a eu le César du meilleur acteur</code></p>
+<p>Il est possible de  <em>coller</em>  (le vrai mot est  <em>concaténer</em>) deux chaînes de caractères par l’opérateur  <code>+</code>  :</p>
+<p><code>&gt;&gt;&gt; "a" + "b" 'ab'</code></p>
+<h2 id="exercice-2">Exercice 2</h2>
+<p>Dans l’extrait de code suivant:</p>
+<ul>
+<li><code>chaine</code>  est une variable initialisée avec un  <code>str</code>  vide :  <code>""</code>;</li>
+<li>on veut qu’en sortie de programme cette variable contienne la valeur  <code>'bravo'</code>.</li>
+</ul>
+<p>L’idée est d’ajouter une par une les lettres à la variable  <code>chaine</code>.</p>
+<p>À l’exécution, le programme doit afficher uniquement  <code>bravo</code>.</p>
+<p>Compléter le code.</p>
+<p><code>chaine = "" for ... in ['b', 'r', 'a', 'v', 'o']: ... print(chaine)</code></p>
+<p>Cette variable  <code>chaine</code>  est appelée un  <strong>accumulateur</strong>.</p>
+<h2 id="exercice-3">Exercice 3</h2>
+<p>En Python, la fonction  <code>ord</code>  renvoie le code Unicode d’un caractère et la fonction  <code>chr</code>  le contraire: elle renvoie le caractère correspondant à un code Unicode.</p>
+<p>Par exemple:</p>
+<p>`&gt;&gt;&gt; ord(‘a’)<br>
+97</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>chr(97)<br>
+‘a’`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Voici une liste contenant les codes Unicode des lettres d’un mot secret… À vous d’écrire un programme où en sortie, la variable  <code>mot_secret</code>  contiendra la chaîne de caractères de ce mot.</p>
+<p>`mystere = [111, 107, 44, 32, 98, 105, 101, 110, 32, 106, 111, 117, 233]<br>
+mot_secret = “”</p>
+<h1 id="à-vous-">à vous !`</h1>
+<h2 id="exercice-4">Exercice 4</h2>
+<p>On souhaite calculer la somme des 1000 premiers nombres entiers naturels, c’est-à-dire: 1+2+3 …+999+1000</p>
+<p>Écrire un programme avec une variable  <code>somme</code>  <strong>accumulateur</strong>  (comme à l’exercice 3) qui contiendra la valeur souhaitée en fin de programme.</p>
+<h2 id="exercice-5">Exercice 5</h2>
+<p>Calculer  1* 2* 3*…*99 *100 .</p>
+<p>Correction</p>
+<p>Exercice 6</p>
+<p>Proposer un code qui écrit la  <strong>table de multiplication</strong>  de 7, de 8 et de 9.</p>
+<p>La sortie doit ressembler à :</p>
+<p>`7*1 = 7</p>
+<p>7*2 = 14</p>
+<p>…<br>
+…</p>
+<p>9*9 = 81`</p>
+<h2 id="exercice-7">Exercice 7</h2>
+<p>Sur un jeu d’échecs, les cases sont repérées par une lettre (de A jusqu’à H) et par un chiffre (de 1 jusqu’à 8).</p>
+<p>Les cases sont donc A1, A2, A3, …, H7, H8.</p>
+<p>Proposer un code qui écrit  <strong>toutes</strong>  les cases possibles.</p>
+<p>Correction</p>
+<h2 id="exercice-8">Exercice 8</h2>
+<p>Dans ma trousse je dispose de 5 feutres de couleur :</p>
+<ul>
+<li>jaune (J)</li>
+<li>vert (V)</li>
+<li>noir (N)</li>
+<li>bleu (B)</li>
+<li>orange (O)</li>
+</ul>
+<p>Pour un exercice, je dois colorier 3 pastilles en choisissant sans aucune contrainte des couleurs parmi les 5 disponibles. Je peux tout colorier en jaune (<code>JJJ</code>) ou bien colorier la 1ère en orange, la 2ème en bleu, la 3ème en vert (<code>OBV</code>  )</p>
+<p>Faire afficher la totalité des combinaisons possibles.</p>
+<h1 id="exercices-sur-la-boucle--while">Exercices sur la boucle  <code>while</code></h1>
+<h2 id="exercice-1-1">Exercice 1</h2>
+<p>Pour chaque code, écrire ce qui va s’afficher en console.</p>
+<p><strong>Code A</strong></p>
+<p><code>c = 0 while c &lt;= 3: print("ok") c += 1</code></p>
+<p><strong>Code B</strong></p>
+<p><code>k = 0 while k &gt; 3: print("ok") k += 1 print("fini")</code></p>
+<p><strong>Code C</strong></p>
+<p><code>n = 0 while n &lt; 4: print("ok") n += 2</code></p>
+<h2 id="exercice-2-1">Exercice 2</h2>
+<p>Que va afficher le code ci-dessous ?</p>
+<p><code>c = 0 mot = 'a' while mot != 'aaaa': mot += 'a' c += 1 print(c)</code></p>
+<p>Correction</p>
+<h2 id="exercice-3-1">Exercice 3</h2>
+<p>Un capital de 10 000 € est placé au taux annuel de 4 %.</p>
+<p>Écrire le code permettant d’afficher au bout de combien d’années le capital va dépasser 14 000 €.</p>
+<p>On rappelle qu’une augmentation de 4 % correspond à une multiplication par 1,04.</p>
+<h1 id="exercices--instruction-conditionnelle-if">Exercices : Instruction conditionnelle if</h1>
+<h2 id="exercice-1-2">Exercice 1</h2>
+<p>Écrire un programme qui demande deux nombres et qui affiche le plus grand des deux.</p>
+<p>Aide : pour stocker dans une variable  <code>n</code>  un nombre tapé au clavier par l’utilisateur, on utilise le code suivant :</p>
+<p><code>n = int(input('Entrez un nombre'))</code></p>
+<p><em>Exemples d’utilisation du programme :</em></p>
+<p><code>Premier nombre ? 12 Deuxième nombre ? 45 le nombre le plus grand est 45</code></p>
+<p><code>Premier nombre ? 17 Deuxième nombre ? 17 les deux nombres sont égaux</code></p>
+<h2 id="exercice-2-2">Exercice 2</h2>
+<p>Le jeu du FizzBuzz : il s’agit de compter à partir de 1 en remplaçant certains nombres par Fizz, Buzz ou Fizzbuzz :</p>
+<ul>
+<li>si le nombre est divisible par 3, on ne le dit pas et on le remplace par Fizz.</li>
+<li>si le nombre est divisible par 5, on ne le dit pas et on le remplace par Buzz.</li>
+<li>si le nombre est divisible par 3 et par 5, on ne le dit pas et on le remplace par FizzBuzz.</li>
+</ul>
+<p>Écrire un code qui joue au FizzBuzz jusqu’à 20.</p>
+<p><em>Exemple d’utilisation du programme :</em></p>
+<p><code>1 2 fizz 4 buzz fizz 7 8 ...</code></p>
+<h2 id="exercice-3-2">Exercice 3</h2>
+<p>Une année est déclarée bissextile (et compte donc 366 jours au lieu de 365) si elle est :</p>
+<ul>
+<li>soit divisible par 400.</li>
+<li>soit divisible par 4 mais pas divisible par 100.</li>
+</ul>
+<p>Écrire un code qui détermine si une année est bissextile ou non.</p>
+<p><em>Explication : la Terre faisant le tour du Soleil en  <a href="https://fr.vikidia.org/wiki/R%C3%A9volution_de_la_Terre_autour_du_Soleil">un peu plus que 365 jours</a>, on s’est dit qu’on allait rajouter un jour tous les 4 ans, mais c’était trop, alors on a enlevé un jour tous les 100 ans, mais c’était plus assez, alors on a rajouté un jour tous les 400 ans, ce qui donne une approximation convenable.</em></p>
+<p>Correction</p>
 
     </div>
   </div>
+
+
+    <!-- =========================
+         PIED DE PAGE
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Classe à Enjeux Maritimes — École Internationale de Carthage
+        </p>
+
+        <p>
+            Année scolaire 2026–2027
+        </p>
+
+    </footer>
+
+
 </body>
 
 </html>
