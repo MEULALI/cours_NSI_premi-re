@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>première</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  <style>
+  /* ============================================
+   MISE EN FORME GÉNÉRALE (corps de texte)
+   ============================================ */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;          /* Gris foncé pour le texte */
+    line-height: 1.6;        /* Espacement entre les lignes */
+    text-align: justify;     /* Texte justifié */
+    margin: 40px;            /* Marge autour du contenu */
+    background-color: #f9f9f9;
+}
+
+/* ============================================
+   NIVEAU 1 : Titre principal (h1)
+   ============================================ */
+h1 {
+    font-size: 32px;
+    color: #1a5276;                 /* Bleu foncé */
+    text-align: center;             /* Centré */
+    text-transform: uppercase;      /* Tout en majuscules */
+    letter-spacing: 2px;            /* Espacement des lettres */
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 10px;
+}
+
+/* ============================================
+   NIVEAU 2 : Sous-titre (h2)
+   ============================================ */
+h2 {
+    font-size: 24px;
+    color: #2874a6;                 /* Bleu moyen */
+    border-left: 5px solid #2874a6; /* Barre colorée à gauche */
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+/* ============================================
+   NIVEAU 3 : Sous-sous-titre (h3)
+   ============================================ */
+h3 {
+    font-size: 19px;
+    color: #148f77;                 /* Vert */
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* ============================================
+   MISE EN VALEUR DU TEXTE
+   ============================================ */
+p {
+    margin-bottom: 12px;
+}
+
+strong, b {
+    color: #c0392b;                 /* Rouge pour le gras */
+}
+
+em, i {
+    color: #7d3c98;                 /* Violet pour l'italique */
+}
+
+/* ============================================
+   BONUS : Coloration du code et des tableaux
+   ============================================ */
+code {
+    background-color: #2c3e50;
+    color: #58d68d;                 /* Vert clair type terminal */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #1a5276;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #eaf2f8;      /* Lignes alternées bleu clair */
+}
+p {
+    padding: 15px;
+    border: 2px solid #bdc3c7;       /* Gris par défaut */
+    border-radius: 10px;
+    transition: all 0.3s ease;       /* Transition douce */
+    margin-bottom: 15px;
+}
+
+p:hover {
+    border-color: #1a5276;           /* Devient bleu au survol */
+    box-shadow: 0 0 12px rgba(26, 82, 118, 0.5);  /* Halo lumineux */
+    transform: scale(1.01);          /* Légère mise en avant */
+}
+</style>
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#exercices-sur-la-boucle--for-...-in">Exercices sur la boucle  for ... in</a>
+<ul>
+<li><a href="#exercice-1">Exercice 1</a></li>
+<li><a href="#exercice-2">Exercice 2</a></li>
+<li><a href="#exercice-3">Exercice 3</a></li>
+</ul>
+</li>
+<li><a href="#à-vous-">à vous !`</a>
+<ul>
+<li><a href="#exercice-4">Exercice 4</a></li>
+<li><a href="#exercice-5">Exercice 5</a></li>
+<li><a href="#exercice-7">Exercice 7</a></li>
+<li><a href="#exercice-8">Exercice 8</a></li>
+</ul>
+</li>
+<li><a href="#exercices-sur-la-boucle--while">Exercices sur la boucle  while</a>
+<ul>
+<li><a href="#exercice-1-1">Exercice 1</a></li>
+<li><a href="#exercice-2-1">Exercice 2</a></li>
+<li><a href="#exercice-3-1">Exercice 3</a></li>
+</ul>
+</li>
+<li><a href="#exercices--instruction-conditionnelle-if">Exercices : Instruction conditionnelle if</a>
+<ul>
+<li><a href="#exercice-1-2">Exercice 1</a></li>
+<li><a href="#exercice-2-2">Exercice 2</a></li>
+<li><a href="#exercice-3-2">Exercice 3</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="exercices-sur-la-boucle--for-...-in">Exercices sur la boucle  <code>for ... in</code></h1>
+<h2 id="exercice-1">Exercice 1</h2>
+<p>On donne une liste d’acteurs :</p>
+<p><code>liste_acteurs = ['Tahar', 'Omar', 'Guillaume', 'Swann', 'Alex', 'Roschdy']</code></p>
+<p>Utilisez cette liste pour produire la sortie suivante:</p>
+<p><code>Tahar a eu le César du meilleur acteur Omar a eu le César du meilleur acteur Guillaume a eu le César du meilleur acteur Swann a eu le César du meilleur acteur Alex a eu le César du meilleur acteur Roschdy a eu le César du meilleur acteur</code></p>
+<p>Il est possible de  <em>coller</em>  (le vrai mot est  <em>concaténer</em>) deux chaînes de caractères par l’opérateur  <code>+</code>  :</p>
+<p><code>&gt;&gt;&gt; "a" + "b" 'ab'</code></p>
+<h2 id="exercice-2">Exercice 2</h2>
+<p>Dans l’extrait de code suivant:</p>
+<ul>
+<li><code>chaine</code>  est une variable initialisée avec un  <code>str</code>  vide :  <code>""</code>;</li>
+<li>on veut qu’en sortie de programme cette variable contienne la valeur  <code>'bravo'</code>.</li>
+</ul>
+<p>L’idée est d’ajouter une par une les lettres à la variable  <code>chaine</code>.</p>
+<p>À l’exécution, le programme doit afficher uniquement  <code>bravo</code>.</p>
+<p>Compléter le code.</p>
+<p><code>chaine = "" for ... in ['b', 'r', 'a', 'v', 'o']: ... print(chaine)</code></p>
+<p>Cette variable  <code>chaine</code>  est appelée un  <strong>accumulateur</strong>.</p>
+<h2 id="exercice-3">Exercice 3</h2>
+<p>En Python, la fonction  <code>ord</code>  renvoie le code Unicode d’un caractère et la fonction  <code>chr</code>  le contraire: elle renvoie le caractère correspondant à un code Unicode.</p>
+<p>Par exemple:</p>
+<p>`&gt;&gt;&gt; ord(‘a’)<br>
+97</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>chr(97)<br>
+‘a’`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Voici une liste contenant les codes Unicode des lettres d’un mot secret… À vous d’écrire un programme où en sortie, la variable  <code>mot_secret</code>  contiendra la chaîne de caractères de ce mot.</p>
+<p>`mystere = [111, 107, 44, 32, 98, 105, 101, 110, 32, 106, 111, 117, 233]<br>
+mot_secret = “”</p>
+<h1 id="à-vous-">à vous !`</h1>
+<h2 id="exercice-4">Exercice 4</h2>
+<p>On souhaite calculer la somme des 1000 premiers nombres entiers naturels, c’est-à-dire: 1+2+3 …+999+1000</p>
+<p>Écrire un programme avec une variable  <code>somme</code>  <strong>accumulateur</strong>  (comme à l’exercice 3) qui contiendra la valeur souhaitée en fin de programme.</p>
+<h2 id="exercice-5">Exercice 5</h2>
+<p>Calculer  1* 2* 3*…*99 *100 .</p>
+<p>Correction</p>
+<p>Exercice 6</p>
+<p>Proposer un code qui écrit la  <strong>table de multiplication</strong>  de 7, de 8 et de 9.</p>
+<p>La sortie doit ressembler à :</p>
+<p>`7*1 = 7</p>
+<p>7*2 = 14</p>
+<p>…<br>
+…</p>
+<p>9*9 = 81`</p>
+<h2 id="exercice-7">Exercice 7</h2>
+<p>Sur un jeu d’échecs, les cases sont repérées par une lettre (de A jusqu’à H) et par un chiffre (de 1 jusqu’à 8).</p>
+<p>Les cases sont donc A1, A2, A3, …, H7, H8.</p>
+<p>Proposer un code qui écrit  <strong>toutes</strong>  les cases possibles.</p>
+<p>Correction</p>
+<h2 id="exercice-8">Exercice 8</h2>
+<p>Dans ma trousse je dispose de 5 feutres de couleur :</p>
+<ul>
+<li>jaune (J)</li>
+<li>vert (V)</li>
+<li>noir (N)</li>
+<li>bleu (B)</li>
+<li>orange (O)</li>
+</ul>
+<p>Pour un exercice, je dois colorier 3 pastilles en choisissant sans aucune contrainte des couleurs parmi les 5 disponibles. Je peux tout colorier en jaune (<code>JJJ</code>) ou bien colorier la 1ère en orange, la 2ème en bleu, la 3ème en vert (<code>OBV</code>  )</p>
+<p>Faire afficher la totalité des combinaisons possibles.</p>
+<h1 id="exercices-sur-la-boucle--while">Exercices sur la boucle  <code>while</code></h1>
+<h2 id="exercice-1-1">Exercice 1</h2>
+<p>Pour chaque code, écrire ce qui va s’afficher en console.</p>
+<p><strong>Code A</strong></p>
+<p><code>c = 0 while c &lt;= 3: print("ok") c += 1</code></p>
+<p><strong>Code B</strong></p>
+<p><code>k = 0 while k &gt; 3: print("ok") k += 1 print("fini")</code></p>
+<p><strong>Code C</strong></p>
+<p><code>n = 0 while n &lt; 4: print("ok") n += 2</code></p>
+<h2 id="exercice-2-1">Exercice 2</h2>
+<p>Que va afficher le code ci-dessous ?</p>
+<p><code>c = 0 mot = 'a' while mot != 'aaaa': mot += 'a' c += 1 print(c)</code></p>
+<p>Correction</p>
+<h2 id="exercice-3-1">Exercice 3</h2>
+<p>Un capital de 10 000 € est placé au taux annuel de 4 %.</p>
+<p>Écrire le code permettant d’afficher au bout de combien d’années le capital va dépasser 14 000 €.</p>
+<p>On rappelle qu’une augmentation de 4 % correspond à une multiplication par 1,04.</p>
+<h1 id="exercices--instruction-conditionnelle-if">Exercices : Instruction conditionnelle if</h1>
+<h2 id="exercice-1-2">Exercice 1</h2>
+<p>Écrire un programme qui demande deux nombres et qui affiche le plus grand des deux.</p>
+<p>Aide : pour stocker dans une variable  <code>n</code>  un nombre tapé au clavier par l’utilisateur, on utilise le code suivant :</p>
+<p><code>n = int(input('Entrez un nombre'))</code></p>
+<p><em>Exemples d’utilisation du programme :</em></p>
+<p><code>Premier nombre ? 12 Deuxième nombre ? 45 le nombre le plus grand est 45</code></p>
+<p><code>Premier nombre ? 17 Deuxième nombre ? 17 les deux nombres sont égaux</code></p>
+<h2 id="exercice-2-2">Exercice 2</h2>
+<p>Le jeu du FizzBuzz : il s’agit de compter à partir de 1 en remplaçant certains nombres par Fizz, Buzz ou Fizzbuzz :</p>
+<ul>
+<li>si le nombre est divisible par 3, on ne le dit pas et on le remplace par Fizz.</li>
+<li>si le nombre est divisible par 5, on ne le dit pas et on le remplace par Buzz.</li>
+<li>si le nombre est divisible par 3 et par 5, on ne le dit pas et on le remplace par FizzBuzz.</li>
+</ul>
+<p>Écrire un code qui joue au FizzBuzz jusqu’à 20.</p>
+<p><em>Exemple d’utilisation du programme :</em></p>
+<p><code>1 2 fizz 4 buzz fizz 7 8 ...</code></p>
+<h2 id="exercice-3-2">Exercice 3</h2>
+<p>Une année est déclarée bissextile (et compte donc 366 jours au lieu de 365) si elle est :</p>
+<ul>
+<li>soit divisible par 400.</li>
+<li>soit divisible par 4 mais pas divisible par 100.</li>
+</ul>
+<p>Écrire un code qui détermine si une année est bissextile ou non.</p>
+<p><em>Explication : la Terre faisant le tour du Soleil en  <a href="https://fr.vikidia.org/wiki/R%C3%A9volution_de_la_Terre_autour_du_Soleil">un peu plus que 365 jours</a>, on s’est dit qu’on allait rajouter un jour tous les 4 ans, mais c’était trop, alors on a enlevé un jour tous les 100 ans, mais c’était plus assez, alors on a rajouté un jour tous les 400 ans, ce qui donne une approximation convenable.</em></p>
+<p>Correction</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
