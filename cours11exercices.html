@@ -7,111 +7,320 @@
   <title>première</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
   <style>
-  /* ============================================
-   MISE EN FORME GÉNÉRALE (corps de texte)
-   ============================================ */
+  /* =====================================================
+   STYLE STANDARD DES COURS — NSI Première
+   À inclure dans chaque page avec :
+   <link rel="stylesheet" href="style.css">
+   ===================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== Palette et variables ===== */
+:root {
+    --bleu-principal: #2c6fbb;    /* titres h1 */
+    --bleu-fonce:    #1d4e89;     /* titres h2 */
+    --turquoise:     #17a2a2;     /* titres h3 */
+    --orange:        #e8850c;     /* titres h4, accents */
+    --rouge:         #d64541;     /* erreurs, dangers */
+    --texte:         #2f3b4c;
+    --fond-page:     #f0f4f8;
+    --blanc:         #ffffff;
+    --code-fond:     #f4f6f8;
+    --bordure:       #dde4ec;
+    --ombre:         0 2px 10px rgba(31, 58, 90, 0.12);
+    --largeur-max:   1100px;
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 16px;
-    color: #333333;          /* Gris foncé pour le texte */
-    line-height: 1.6;        /* Espacement entre les lignes */
-    text-align: justify;     /* Texte justifié */
-    margin: 40px;            /* Marge autour du contenu */
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: var(--texte);
+    background-color: var(--fond-page);
 }
 
-/* ============================================
-   NIVEAU 1 : Titre principal (h1)
-   ============================================ */
+/* =====================================================
+   TITRES — hiérarchie colorée avec effets
+   ===================================================== */
+
 h1 {
-    font-size: 32px;
-    color: #1a5276;                 /* Bleu foncé */
-    text-align: center;             /* Centré */
-    text-transform: uppercase;      /* Tout en majuscules */
-    letter-spacing: 2px;            /* Espacement des lettres */
-    border-bottom: 3px solid #1a5276;
-    padding-bottom: 10px;
+    color: var(--bleu-principal);
+    font-size: 30px;
+    margin: 10px 0 25px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, rgba(44, 111, 187, 0.10), transparent);
+    border-left: 6px solid var(--bleu-principal);
+    border-radius: 6px;
 }
 
-/* ============================================
-   NIVEAU 2 : Sous-titre (h2)
-   ============================================ */
 h2 {
+    color: var(--bleu-fonce);
     font-size: 24px;
-    color: #2874a6;                 /* Bleu moyen */
-    border-left: 5px solid #2874a6; /* Barre colorée à gauche */
-    padding-left: 10px;
-    margin-top: 30px;
+    margin: 35px 0 15px;
+    padding: 10px 15px;
+    background: linear-gradient(to right, rgba(29, 78, 137, 0.10), transparent 80%);
+    border-left: 5px solid var(--bleu-fonce);
+    border-radius: 4px;
 }
 
-/* ============================================
-   NIVEAU 3 : Sous-sous-titre (h3)
-   ============================================ */
 h3 {
+    color: var(--turquoise);
     font-size: 19px;
-    color: #148f77;                 /* Vert */
-    font-style: italic;
-    margin-top: 20px;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(23, 162, 162, 0.35);
 }
 
-/* ============================================
-   MISE EN VALEUR DU TEXTE
-   ============================================ */
+h4 {
+    color: var(--orange);
+    font-size: 16px;
+    margin: 22px 0 10px;
+}
+
+h4::before { content: "▸ "; color: var(--orange); }
+
+/* =====================================================
+   PARAGRAPHES — effets de lecture
+   ===================================================== */
+
 p {
-    margin-bottom: 12px;
+    margin: 0 0 16px;
+    font-size: 16px;
+    text-align: justify;
 }
 
-strong, b {
-    color: #c0392b;                 /* Rouge pour le gras */
+/* Le tout premier paragraphe après un titre : lettrine */
+h1 + p::first-letter,
+h2 + p::first-letter {
+    font-size: 2.4em;
+    font-weight: bold;
+    color: var(--bleu-principal);
+    float: left;
+    line-height: 0.9;
+    margin: 3px 8px 0 0;
 }
 
-em, i {
-    color: #7d3c98;                 /* Violet pour l'italique */
+strong { color: var(--bleu-fonce); }
+
+em { color: var(--orange); font-style: italic; }
+
+/* ===== Listes ===== */
+ul, ol {
+    margin: 0 0 18px;
+    padding-left: 28px;
 }
 
-/* ============================================
-   BONUS : Coloration du code et des tableaux
-   ============================================ */
+li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+li::marker { color: var(--turquoise); font-weight: bold; }
+
+/* ===== Liens ===== */
+a {
+    color: var(--bleu-principal);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1.5px dotted var(--turquoise);
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: var(--orange);
+    border-bottom: 1.5px solid var(--orange);
+}
+
+/* =====================================================
+   BLOCS DE CODE
+   ===================================================== */
+
+pre {
+    background-color: var(--code-fond);
+    border: 1px solid var(--bordure);
+    border-left: 5px solid var(--bleu-principal);
+    border-radius: 6px;
+    padding: 15px 18px;
+    margin: 0 0 18px;
+    overflow-x: auto;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.55;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 code {
-    background-color: #2c3e50;
-    color: #58d68d;                 /* Vert clair type terminal */
+    font-family: 'Courier New', Consolas, monospace;
+    background-color: rgba(23, 162, 162, 0.12);
+    color: #0e6b6b;
     padding: 2px 6px;
     border-radius: 4px;
-    font-family: 'Consolas', monospace;
+    font-size: 14.5px;
 }
 
+/* Le code DANS un bloc pre reste sobre */
+pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+/* =====================================================
+   TABLEAUX
+   ===================================================== */
+
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15.5px;
+    background: var(--blanc);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--ombre);
 }
 
 th {
-    background-color: #1a5276;
-    color: white;
-    padding: 10px;
-}
-
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    background-color: var(--bleu-principal);
+    color: var(--blanc);
+    padding: 10px 12px;
     text-align: left;
 }
 
-tr:nth-child(even) {
-    background-color: #eaf2f8;      /* Lignes alternées bleu clair */
-}
-p {
-    padding: 15px;
-    border: 2px solid #bdc3c7;       /* Gris par défaut */
-    border-radius: 10px;
-    transition: all 0.3s ease;       /* Transition douce */
-    margin-bottom: 15px;
+td {
+    border-bottom: 1px solid var(--bordure);
+    padding: 10px 12px;
 }
 
-p:hover {
-    border-color: #1a5276;           /* Devient bleu au survol */
-    box-shadow: 0 0 12px rgba(26, 82, 118, 0.5);  /* Halo lumineux */
-    transform: scale(1.01);          /* Légère mise en avant */
+tr:nth-child(even) { background-color: #f6f9fc; }
+tr:hover { background-color: rgba(23, 162, 162, 0.08); }
+
+/* =====================================================
+   BLOCS SPÉCIAUX (classes à utiliser dans le HTML)
+   ===================================================== */
+
+/* Encadré jaune : aide, remarque, méthode */
+.aide, .remarque, .methode {
+    background-color: #fff9e6;
+    border-left: 5px solid var(--orange);
+    padding: 13px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.aide h4, .remarque h4, .methode h4 { color: var(--orange); margin-bottom: 6px; }
+.aide p, .remarque p, .methode p { margin-bottom: 6px; text-align: left; }
+
+/* Encadré rouge : erreur, danger, attention */
+.attention {
+    background-color: #fdeaea;
+    border-left: 5px solid var(--rouge);
+    padding: 13px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.attention h4 { color: var(--rouge); margin-bottom: 6px; }
+.attention p { margin-bottom: 6px; text-align: left; }
+
+/* Encadré vert : définition */
+.definition {
+    background-color: #e9f7ef;
+    border-left: 5px solid #27ae60;
+    padding: 13px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.definition h4 { color: #1e8449; margin-bottom: 6px; }
+.definition p { margin-bottom: 6px; text-align: left; }
+
+/* Bloc "Correction" repliable */
+details {
+    background-color: #e8f6f6;
+    border-left: 5px solid var(--turquoise);
+    padding: 10px 16px;
+    margin: 14px 0 18px;
+    border-radius: 0 6px 6px 0;
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #0e6b6b;
+    font-size: 15px;
+}
+
+details[open] summary { margin-bottom: 10px; }
+
+/* ===== Images ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 15px 0;
+    box-shadow: var(--ombre);
+}
+
+/* ===== Séparateur ===== */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, var(--turquoise), transparent);
+    margin: 30px 0;
+}
+
+/* =====================================================
+   STRUCTURE DE PAGE (pour pages StackEdit ou manuelles)
+   ===================================================== */
+
+/* Si tu utilises l'export StackEdit (body.stackedit) */
+body.stackedit {
+    display: flex;
+    gap: 30px;
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+    padding: 25px 20px;
+    align-items: flex-start;
+}
+
+.stackedit__left {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+}
+
+.stackedit__toc {
+    background: var(--blanc);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: var(--ombre);
+    font-size: 14px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.stackedit__toc ul { list-style: none; padding-left: 0; }
+.stackedit__toc ul ul { padding-left: 15px; }
+.stackedit__toc li { margin-bottom: 4px; }
+.stackedit__toc a { border: none; font-weight: normal; }
+.stackedit__toc a:hover { color: var(--orange); background: #f6f9fc; border-radius: 4px; }
+
+.stackedit__right { flex: 1; min-width: 0; }
+
+.stackedit__html {
+    background: var(--blanc);
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: var(--ombre);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    body.stackedit { flex-direction: column; padding: 10px; }
+    .stackedit__left { width: 100%; position: static; }
+    .stackedit__html { padding: 18px; }
+    p { text-align: left; }
 }
 </style>
 </head>
