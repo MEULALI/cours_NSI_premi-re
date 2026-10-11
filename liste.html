@@ -898,20 +898,10 @@ Puisqu’on a créé une liste par ajout successifs dans une liste vide en parco
 
     </div>
   </div>
-  <script>
-    // Les liens du sommaire ne polluent plus l'historique du navigateur
-    document.querySelectorAll('.stackedit__toc a[href^="#"]').forEach(function (lien) {
-        lien.addEventListener('click', function (e) {
-            e.preventDefault();
-            var cible = document.querySelector(this.getAttribute('href'));
-            if (cible) {
-                cible.scrollIntoView({ behavior: 'smooth' });
-            }
-            // remplace l'ancre dans l'URL SANS ajouter d'entrée d'historique
-            history.replaceState(null, '', this.getAttribute('href'));
-        });
-    });
-</script>
+ <!-- Bouton flottant de retour à l'accueil -->
+<a href="index.html" class="bouton-retour">
+    ⬅️ Accueil
+</a>
 </body>
 
 </html>
