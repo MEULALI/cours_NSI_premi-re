@@ -1,0 +1,904 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#i.-listes">I. Listes</a>
+<ul>
+<li><a href="#déclaration-dune-liste">1. Déclaration d’une liste</a></li>
+<li><a href="#accès-aux-éléments-dune-liste">2. Accès aux éléments d’une liste:</a></li>
+<li><a href="#longueur-dune-liste">3. Longueur d’une liste</a></li>
+<li><a href="#parcours-des-éléments-dune-liste">4. Parcours des éléments d’une liste</a></li>
+<li><a href="#modification-dune-liste">5. Modification d’une liste:</a></li>
+<li><a href="#construction-dune-liste-déléments-identiques">6. Construction d’une liste d’éléments identiques</a></li>
+<li><a href="#construction-dune-liste--en-compréhension">7. Construction d’une liste  en compréhension</a></li>
+<li><a href="#un-phénomène-inquiétant--la-copie-de-liste">8. Un phénomène inquiétant : la copie de liste</a></li>
+<li><a href="#tableaux-à-plusieurs-dimensions--listes-de-listes">9. Tableaux à plusieurs dimensions : listes de listes</a></li>
+</ul>
+</li>
+<li><a href="#ii.-tuples">II. Tuples:</a>
+<ul>
+<li><a href="#différence-entre-tuple-et-liste">Différence entre tuple et liste:</a></li>
+<li><a href="#utilisation-dun-tuple">Utilisation d’un tuple</a></li>
+<li><a href="#fonction-renvoyant-plusieurs-valeurs">Fonction renvoyant plusieurs valeurs</a></li>
+</ul>
+</li>
+<li><a href="#iii.-dictionnaires">III. Dictionnaires:</a>
+<ul>
+<li><a href="#définition-dun-dictionnaire-clés-et-valeurs">1. Définition d’un dictionnaire, clés et valeurs:</a></li>
+<li><a href="#méthodes-sur-les-dictionnaires">2 Méthodes sur les dictionnaires:</a></li>
+<li><a href="#bilan">3 Bilan</a></li>
+</ul>
+</li>
+<li><a href="#iv.exercices">IV.Exercices:</a>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="i.-listes">I. Listes</h1>
+<p>Les listes font partie de ce qu’on appelle les  <em>données composites</em>  (nous verrons plus tard les  <em>tuples</em>  et les  <em>dictionnaires</em>). Elles permettent de regrouper de manière structurée un  <strong>ensemble de valeurs</strong>  (et non plus une valeur unique). On les appelle  <em>listes</em>  en Python, ou bien  <em>tableaux</em>  de manière plus générale.</p>
+<h2 id="déclaration-dune-liste">1. Déclaration d’une liste</h2>
+<p>Exemple fondateur n°1</p>
+<p>Une variable de type liste sera délimitée par des  <strong>crochets</strong>, et ses éléments séparés par des  <strong>virgules</strong>  :</p>
+<pre class=" language-python"><code class="prism  language-python">    `<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> maliste <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"riri"</span><span class="token punctuation">,</span> <span class="token string">"fifi"</span><span class="token punctuation">,</span> <span class="token string">"loulou"</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>On peut observer le type de la variable ainsi créée :</p>
+<pre class=" language-python"><code class="prism  language-python">    `<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>maliste<span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token keyword">class</span>  <span class="token string">'list'</span><span class="token operator">&gt;</span>` 
+</code></pre>
+<p><strong>Remarques :</strong></p>
+<ul>
+<li>
+<p>Même si cela n’a ici un grand intérêt, les éléments d’une liste peuvent donc être de types différents : ici, tous les éléments de ma liste sont des chaînes de caractères (<code>str</code>), mais la liste  <code>["riri", 5, "fifi", "loulou"]</code>  est aussi une liste valide.</p>
+</li>
+<li>
+<p>Une liste  <strong>vide</strong>  se déclarera avec  <code>[]</code>.</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> copies_corrigees <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>` 
+
+Nous verrons plus tard qu<span class="token string">'il est fréquent dans les exercices de partir d'</span>une liste vide et d'ajouter progressivement des éléments<span class="token punctuation">.</span>
+
+
+</code></pre>
+</li>
+</ul>
+<h2 id="accès-aux-éléments-dune-liste">2. Accès aux éléments d’une liste:</h2>
+<p>Exemple fondateur n°2</p>
+<p>On accède à un élément d’une liste en mettant entre crochets l’indice de l’élément (qui commence à  <strong>zéro</strong>).</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Bart"</span><span class="token punctuation">,</span> <span class="token string">"Lisa"</span><span class="token punctuation">,</span> <span class="token string">"Maggie"</span><span class="token punctuation">]</span> <span class="token comment">#` </span>
+
+    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token string">'Bart'</span>
+    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token string">'Lisa'</span>
+    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token string">'Maggie'</span>
+    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+    Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      File <span class="token string">"&lt;pyshell&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
+    IndexError<span class="token punctuation">:</span> <span class="token builtin">list</span> index out of <span class="token builtin">range</span>
+</code></pre>
+<p><strong>Remarques :</strong></p>
+<ul>
+<li>
+<p>Un indice qui dépasse la valeur <code>longueur de la liste -1</code>  provoquera donc une erreur  <code>list index out of range</code>. C’est une erreur  <strong>très fréquente</strong>  lorsqu’on manipule des listes.</p>
+</li>
+<li>
+<p>Il est par contre possible d’utiliser des indices  <strong>négatifs</strong>. On utilise par exemple très souvent l’indice -1 pour accéder au dernier élément de la liste, sans avoir à connaître la longueur de celle-ci :</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">
+`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token string">'Maggie'</span>` 
+</code></pre>
+<h2 id="longueur-dune-liste">3. Longueur d’une liste</h2>
+<p>La longueur d’une liste sera donnée par la fonction  <code>len()</code>, qui renvoie donc un nombre entier positif ou nul.</p>
+<pre class=" language-python"><code class="prism  language-python">    `<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>famille<span class="token punctuation">)</span>
+    <span class="token number">3</span>` 
+</code></pre>
+<p><strong>Remarques :</strong></p>
+<ul>
+<li>La liste vide a pour longueur 0 :</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token number">0</span>` 
+  
+<span class="token operator">-</span>   Le dernier élément d<span class="token string">'une liste  `maliste`  (non vide) sera donc toujours l'</span>élément d'indice  `<span class="token builtin">len</span><span class="token punctuation">(</span>maliste<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>`<span class="token punctuation">.</span>
+  ```python 
+  `<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token builtin">len</span><span class="token punctuation">(</span>famille<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token string">'Maggie'</span>
+</code></pre>
+<ul>
+<li>Comme indiqué précédemment, ce dernier élément est aussi accessible par l’indice -1.</li>
+</ul>
+<h2 id="parcours-des-éléments-dune-liste">4. Parcours des éléments d’une liste</h2>
+<p>Il existe deux méthodes pour parcourir séquentiellement tous les éléments d’une liste. Ces deux méthodes sont à maîtriser impérativement.</p>
+<h3 id="parcours-«par-éléments»">4.1 Parcours «par éléments»:</h3>
+<p>C’est la méthode la plus naturelle, celle déjà vue lors de la présentation de la boucle  <code>for</code>. Nous allons simplement  <em>itérer</em>  sur les éléments de la liste.</p>
+<p>Exemple fondateur n°4</p>
+<p>Le code :</p>
+<pre class=" language-python"><code class="prism  language-python">    `famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Bart"</span><span class="token punctuation">,</span> <span class="token string">"Lisa"</span><span class="token punctuation">,</span> <span class="token string">"Maggie"</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">for</span> membre <span class="token keyword">in</span> famille<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>membre<span class="token punctuation">)</span>` 
+</code></pre>
+<p>renverra :</p>
+<pre class=" language-python"><code class="prism  language-python">Bart
+Lisa
+Maggie` 
+</code></pre>
+<p><strong>Remarque :</strong></p>
+<ul>
+<li>Penser à donner un nom signifiant à la variable qui parcourt la liste. Il aurait par exemple été très maladroit d’écrire</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">  <span class="token keyword">for</span> k <span class="token keyword">in</span> famille<span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+</code></pre>
+<p>En effet le nom de variable  <code>k</code>  est habituellement utilisé pour les nombres (les indices, les compteurs…).</p>
+<p>Exercice 1</p>
+<p>Après un référendum, la liste  <code>urne</code>  contient uniquement des  <code>'oui'</code>  ou des  <code>'non'</code>. Déterminer le vainqueur de ce référendum.</p>
+<pre class=" language-python"><code class="prism  language-python">`urne <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">,</span> <span class="token string">'non'</span><span class="token punctuation">,</span> <span class="token string">'oui'</span><span class="token punctuation">]</span>` 
+</code></pre>
+<h3 id="parcours-«par-indice»">4.2 Parcours «par indice»:</h3>
+<p>Chaque élément étant accessible par son indice (de  <code>0</code>  à  <code>len(liste) - 1</code>  ), il suffit de faire parcourir à une variable  <code>i</code>  l’ensemble des entiers de  <code>0</code>  à  <code>len(liste) - 1</code>, par l’instruction  <code>range(len(liste))</code>  :</p>
+<p>Exemple fondateur n°5</p>
+<p>Le code :</p>
+<pre class=" language-python"><code class="prism  language-python">`famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Bart"</span><span class="token punctuation">,</span> <span class="token string">"Lisa"</span><span class="token punctuation">,</span> <span class="token string">"Maggie"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>famille<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>famille<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>` 
+</code></pre>
+<p>renverra :</p>
+<pre class=" language-python"><code class="prism  language-python">`Bart
+Lisa
+Maggie` 
+</code></pre>
+<p><strong>Bonne habitude à prendre</strong>  : nommer sa variable d’indice  <code>i</code>,  <code>j</code>,  <code>k</code>  ou  <code>indice</code>  mais pas autre chose !</p>
+<h3 id="avantages-et-inconvénients-de-chaque-méthode">4.3 Avantages et inconvénients de chaque méthode:</h3>
+<h4 id="parcours-par-élément">4.3.1 Parcours par élément:</h4>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">for</span> membre <span class="token keyword">in</span> famille<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>membre<span class="token punctuation">)</span>
+
+</code></pre>
+<p><strong>Les avantages</strong></p>
+<ul>
+<li>la simplicité : un code plus facile à écrire, avec un nom de variable explicite.</li>
+<li>la sécurité : pas de risque d’<code>index out of range</code>  !</li>
+</ul>
+<p><strong>Les inconvénients</strong></p>
+<ul>
+<li>méthode rudimentaire : lorsqu’on est «positionné» sur un élément, il n’est pas possible d’accéder au précédent ou au suivant. (et c’est parfois utile).</li>
+<li>on ne peut pas modifier l’élément sur lequel on est positionné :</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> nb <span class="token keyword">in</span> lst<span class="token punctuation">:</span>
+        nb <span class="token operator">=</span> nb <span class="token operator">*</span> <span class="token number">2</span> <span class="token comment">#` </span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst 
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment"># </span>
+</code></pre>
+<p>`</p>
+<h4 id="parcours-par-indice">4.3.2 Parcours par indice:</h4>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>famille<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>famille<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><strong>Les avantages</strong></p>
+<ul>
+<li>le contrôle : en parcourant par indice, on peut s’arrêter où on veut, on peut accéder au suivant/précédent…</li>
+<li>pour les tableaux à deux dimensions, on retrouve la désignation classique d’un élément par numéro de ligne / numéro de colonne.</li>
+</ul>
+<p><strong>Les inconvénients</strong></p>
+<ul>
+<li>la complexité : il faut connaître le nombre d’éléments de la liste (ou le récupérer par la fonction  <code>len()</code>  )</li>
+<li>le risque d’erreur : encore et toujours le  <code>index out of range</code>…</li>
+</ul>
+<p>Exercice 2</p>
+<p>On donne la liste :</p>
+<p><code>lst = [3, 1, 4, 1, 5, 9]</code></p>
+<p>En utilisant un parcours  <strong>par indice</strong>  :</p>
+<p><strong>Q1.</strong>  Afficher un à un les éléments de cette liste.</p>
+<p><strong>Q2.</strong>  Afficher un à un les éléments de cette liste  <strong>dans l’ordre inverse</strong>  (en commençant par 9)</p>
+<p>Exercice 3</p>
+<p>Trouvez le nombre qui est  <strong>exactement à la même place</strong>  dans la liste  <code>list1</code>  et dans la liste  <code>list2</code>,  <strong>sachant que les deux listes ont la même taille</strong>.</p>
+<pre class=" language-python"><code class="prism  language-python">`list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8468</span><span class="token punctuation">,</span> <span class="token number">4560</span><span class="token punctuation">,</span> <span class="token number">3941</span><span class="token punctuation">,</span> <span class="token number">3328</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9910</span><span class="token punctuation">,</span> <span class="token number">9208</span><span class="token punctuation">,</span> <span class="token number">8400</span><span class="token punctuation">,</span> <span class="token number">6502</span><span class="token punctuation">,</span> <span class="token number">1076</span><span class="token punctuation">,</span> <span class="token number">5921</span><span class="token punctuation">,</span> <span class="token number">6720</span><span class="token punctuation">,</span> <span class="token number">948</span><span class="token punctuation">,</span> <span class="token number">9561</span><span class="token punctuation">,</span> <span class="token number">7391</span><span class="token punctuation">,</span> <span class="token number">7745</span><span class="token punctuation">,</span> <span class="token number">9007</span><span class="token punctuation">,</span> <span class="token number">9707</span><span class="token punctuation">,</span> <span class="token number">4370</span><span class="token punctuation">,</span> <span class="token number">9636</span><span class="token punctuation">,</span> <span class="token number">5265</span><span class="token punctuation">,</span> <span class="token number">2638</span><span class="token punctuation">,</span> <span class="token number">8919</span><span class="token punctuation">,</span> <span class="token number">7814</span><span class="token punctuation">,</span> <span class="token number">5142</span><span class="token punctuation">,</span> <span class="token number">1060</span><span class="token punctuation">,</span> <span class="token number">6971</span><span class="token punctuation">,</span> <span class="token number">4065</span><span class="token punctuation">,</span> <span class="token number">4629</span><span class="token punctuation">,</span> <span class="token number">4490</span><span class="token punctuation">,</span> <span class="token number">2480</span><span class="token punctuation">,</span> <span class="token number">9180</span><span class="token punctuation">,</span> <span class="token number">5623</span><span class="token punctuation">,</span> <span class="token number">6600</span><span class="token punctuation">,</span> <span class="token number">1764</span><span class="token punctuation">,</span> <span class="token number">9846</span><span class="token punctuation">,</span> <span class="token number">7605</span><span class="token punctuation">,</span> <span class="token number">8271</span><span class="token punctuation">,</span> <span class="token number">4681</span><span class="token punctuation">,</span> <span class="token number">2818</span><span class="token punctuation">,</span> <span class="token number">832</span><span class="token punctuation">,</span> <span class="token number">5280</span><span class="token punctuation">,</span> <span class="token number">3170</span><span class="token punctuation">,</span> <span class="token number">8965</span><span class="token punctuation">,</span> <span class="token number">4332</span><span class="token punctuation">,</span> <span class="token number">3198</span><span class="token punctuation">,</span> <span class="token number">9454</span><span class="token punctuation">,</span> <span class="token number">2025</span><span class="token punctuation">,</span> <span class="token number">2373</span><span class="token punctuation">,</span> <span class="token number">4067</span><span class="token punctuation">]</span>
+list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">9093</span><span class="token punctuation">,</span> <span class="token number">2559</span><span class="token punctuation">,</span> <span class="token number">9664</span><span class="token punctuation">,</span> <span class="token number">8075</span><span class="token punctuation">,</span> <span class="token number">4525</span><span class="token punctuation">,</span> <span class="token number">5847</span><span class="token punctuation">,</span> <span class="token number">67</span><span class="token punctuation">,</span> <span class="token number">8932</span><span class="token punctuation">,</span> <span class="token number">5049</span><span class="token punctuation">,</span> <span class="token number">5241</span><span class="token punctuation">,</span> <span class="token number">5886</span><span class="token punctuation">,</span> <span class="token number">1393</span><span class="token punctuation">,</span> <span class="token number">9413</span><span class="token punctuation">,</span> <span class="token number">8872</span><span class="token punctuation">,</span> <span class="token number">2560</span><span class="token punctuation">,</span> <span class="token number">4636</span><span class="token punctuation">,</span> <span class="token number">9004</span><span class="token punctuation">,</span> <span class="token number">7586</span><span class="token punctuation">,</span> <span class="token number">1461</span><span class="token punctuation">,</span> <span class="token number">350</span><span class="token punctuation">,</span> <span class="token number">2627</span><span class="token punctuation">,</span> <span class="token number">2187</span><span class="token punctuation">,</span> <span class="token number">7778</span><span class="token punctuation">,</span> <span class="token number">8933</span><span class="token punctuation">,</span> <span class="token number">351</span><span class="token punctuation">,</span> <span class="token number">7097</span><span class="token punctuation">,</span> <span class="token number">356</span><span class="token punctuation">,</span> <span class="token number">4110</span><span class="token punctuation">,</span> <span class="token number">1393</span><span class="token punctuation">,</span> <span class="token number">4864</span><span class="token punctuation">,</span> <span class="token number">1088</span><span class="token punctuation">,</span> <span class="token number">3904</span><span class="token punctuation">,</span> <span class="token number">5623</span><span class="token punctuation">,</span> <span class="token number">8040</span><span class="token punctuation">,</span> <span class="token number">7273</span><span class="token punctuation">,</span> <span class="token number">1114</span><span class="token punctuation">,</span> <span class="token number">4394</span><span class="token punctuation">,</span> <span class="token number">4108</span><span class="token punctuation">,</span> <span class="token number">7123</span><span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">,</span> <span class="token number">5715</span><span class="token punctuation">,</span> <span class="token number">7215</span><span class="token punctuation">,</span> <span class="token number">7460</span><span class="token punctuation">,</span> <span class="token number">5829</span><span class="token punctuation">,</span> <span class="token number">9513</span><span class="token punctuation">,</span> <span class="token number">1256</span><span class="token punctuation">,</span> <span class="token number">4052</span><span class="token punctuation">,</span> <span class="token number">1585</span><span class="token punctuation">,</span> <span class="token number">1608</span><span class="token punctuation">,</span> <span class="token number">3941</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p><strong>Q1.</strong>  En utilisant une boucle  <code>for</code>  (une seule !).</p>
+<p><strong>Q2.</strong>  En utilisant une boucle  <code>while</code>. Quel est l’avantage de la boucle  <code>while</code>  ?</p>
+<p>Avantage : on s’arrête dès qu’on a trouvé !</p>
+<p>Inconvénient : on part du principe que ce nombre existe vraiment. Si on ne le trouve pas, on aura une erreur…</p>
+<p>Exercice 4</p>
+<p>Dans la liste</p>
+<pre class=" language-python"><code class="prism  language-python">`lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2428970</span><span class="token punctuation">,</span> <span class="token number">1518306</span><span class="token punctuation">,</span> <span class="token number">4971405</span><span class="token punctuation">,</span> <span class="token number">1690994</span><span class="token punctuation">,</span> <span class="token number">7918102</span><span class="token punctuation">,</span> <span class="token number">4030834</span><span class="token punctuation">,</span> <span class="token number">8830131</span><span class="token punctuation">,</span> <span class="token number">7514856</span><span class="token punctuation">,</span> <span class="token number">7903128</span><span class="token punctuation">,</span> <span class="token number">6307569</span><span class="token punctuation">,</span> <span class="token number">6624056</span><span class="token punctuation">,</span> <span class="token number">5260490</span><span class="token punctuation">,</span> <span class="token number">6447835</span><span class="token punctuation">,</span> <span class="token number">4598783</span><span class="token punctuation">,</span> <span class="token number">9108626</span><span class="token punctuation">,</span> <span class="token number">5045240</span><span class="token punctuation">,</span> <span class="token number">4128269</span><span class="token punctuation">,</span> <span class="token number">4460134</span><span class="token punctuation">,</span> <span class="token number">2497873</span><span class="token punctuation">,</span> <span class="token number">5076659</span><span class="token punctuation">,</span> <span class="token number">8104003</span><span class="token punctuation">,</span> <span class="token number">7604887</span><span class="token punctuation">,</span> <span class="token number">7451976</span><span class="token punctuation">,</span> <span class="token number">4136924</span><span class="token punctuation">,</span> <span class="token number">5691945</span><span class="token punctuation">,</span> <span class="token number">8726293</span><span class="token punctuation">,</span> <span class="token number">7855592</span><span class="token punctuation">,</span> <span class="token number">3562473</span><span class="token punctuation">,</span> <span class="token number">8849129</span><span class="token punctuation">,</span> <span class="token number">6488474</span><span class="token punctuation">,</span> <span class="token number">5303587</span><span class="token punctuation">,</span> <span class="token number">2606124</span><span class="token punctuation">,</span> <span class="token number">5484044</span><span class="token punctuation">,</span> <span class="token number">4559758</span><span class="token punctuation">,</span> <span class="token number">7592232</span><span class="token punctuation">,</span> <span class="token number">2211406</span><span class="token punctuation">,</span> <span class="token number">9974334</span><span class="token punctuation">,</span> <span class="token number">7988936</span><span class="token punctuation">,</span> <span class="token number">7582946</span><span class="token punctuation">,</span> <span class="token number">7668748</span><span class="token punctuation">,</span> <span class="token number">1799997</span><span class="token punctuation">,</span> <span class="token number">3837917</span><span class="token punctuation">,</span> <span class="token number">3196209</span><span class="token punctuation">,</span> <span class="token number">7064342</span><span class="token punctuation">,</span> <span class="token number">2543765</span><span class="token punctuation">,</span> <span class="token number">1182013</span><span class="token punctuation">,</span> <span class="token number">7253381</span><span class="token punctuation">,</span> <span class="token number">1153735</span><span class="token punctuation">,</span> <span class="token number">1037391</span><span class="token punctuation">,</span> <span class="token number">4375946</span><span class="token punctuation">,</span> <span class="token number">4445821</span><span class="token punctuation">,</span> <span class="token number">5965587</span><span class="token punctuation">,</span> <span class="token number">6001887</span><span class="token punctuation">,</span> <span class="token number">4162629</span><span class="token punctuation">,</span> <span class="token number">5235783</span><span class="token punctuation">,</span> <span class="token number">8716582</span><span class="token punctuation">,</span> <span class="token number">4901175</span><span class="token punctuation">,</span> <span class="token number">5445422</span><span class="token punctuation">,</span> <span class="token number">1120005</span><span class="token punctuation">,</span> <span class="token number">8332321</span><span class="token punctuation">,</span> <span class="token number">7075046</span><span class="token punctuation">,</span> <span class="token number">2194175</span><span class="token punctuation">,</span> <span class="token number">5557300</span><span class="token punctuation">,</span> <span class="token number">2887907</span><span class="token punctuation">,</span> <span class="token number">5103214</span><span class="token punctuation">,</span> <span class="token number">2520744</span><span class="token punctuation">,</span> <span class="token number">5104399</span><span class="token punctuation">,</span> <span class="token number">2065665</span><span class="token punctuation">,</span> <span class="token number">3035703</span><span class="token punctuation">,</span> <span class="token number">7890213</span><span class="token punctuation">,</span> <span class="token number">1758301</span><span class="token punctuation">,</span> <span class="token number">3407982</span><span class="token punctuation">,</span> <span class="token number">1355453</span><span class="token punctuation">,</span> <span class="token number">4896338</span><span class="token punctuation">,</span> <span class="token number">7979392</span><span class="token punctuation">,</span> <span class="token number">9671602</span><span class="token punctuation">,</span> <span class="token number">9690721</span><span class="token punctuation">,</span> <span class="token number">7423779</span><span class="token punctuation">,</span> <span class="token number">7423780</span><span class="token punctuation">,</span> <span class="token number">3080825</span><span class="token punctuation">,</span> <span class="token number">6785783</span><span class="token punctuation">,</span> <span class="token number">3836837</span><span class="token punctuation">,</span> <span class="token number">7310931</span><span class="token punctuation">,</span> <span class="token number">1857470</span><span class="token punctuation">,</span> <span class="token number">3492507</span><span class="token punctuation">,</span> <span class="token number">2823231</span><span class="token punctuation">,</span> <span class="token number">1492310</span><span class="token punctuation">,</span> <span class="token number">1911148</span><span class="token punctuation">,</span> <span class="token number">9620515</span><span class="token punctuation">,</span> <span class="token number">5564910</span><span class="token punctuation">,</span> <span class="token number">7009452</span><span class="token punctuation">,</span> <span class="token number">7464745</span><span class="token punctuation">,</span> <span class="token number">9608747</span><span class="token punctuation">,</span> <span class="token number">7267383</span><span class="token punctuation">,</span> <span class="token number">6939140</span><span class="token punctuation">,</span> <span class="token number">6556578</span><span class="token punctuation">,</span> <span class="token number">3592267</span><span class="token punctuation">,</span> <span class="token number">8135497</span><span class="token punctuation">,</span> <span class="token number">4881660</span><span class="token punctuation">,</span> <span class="token number">5346884</span><span class="token punctuation">,</span> <span class="token number">6859150</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>se cachent deux nombres consécutifs (comme les nombres 4 et 5 dans la liste  <code>[6, 2, 4, 5, 3]</code>  ). Pouvez-vous les trouver ?</p>
+<h2 id="modification-dune-liste">5. Modification d’une liste:</h2>
+<p>En Python, les objets de type  <code>List</code>  sont modifiables (on emploie le mot  <em>mutables</em>). Et c’est souvent une bonne chose, car des listes peuvent évoluer après leur création. Lorsqu’on souhaitera  <strong>figer</strong>  le contenu d’une liste (pour des raisons de sécurité du code essentiellement), on utilisera alors le type  <code>Tuple</code>, qui sera vu ultérieurement.</p>
+<h3 id="modification-dun-élément-existant">5.1 Modification d’un élément existant:</h3>
+<p>Il suffit d’écraser la valeur actuelle avec une nouvelle valeur</p>
+<p>Exemple fondateur n°6</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Bart"</span><span class="token punctuation">,</span> <span class="token string">"Lisa"</span><span class="token punctuation">,</span> <span class="token string">"Maggie"</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Bartholomew"</span> <span class="token comment"># oui, c'est son vrai nom</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille
+<span class="token punctuation">[</span><span class="token string">'Bartholomew'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">,</span> <span class="token string">'Maggie'</span><span class="token punctuation">]</span>` 
+</code></pre>
+<h3 id="ajout-dun-élement-à-la-fin-dune-liste--la-méthode--append">5.2 Ajout d’un élement à la fin d’une liste : la méthode  <strong>append()</strong></h3>
+<p>Exemple fondateur n°7</p>
+<pre class=" language-python"><code class="prism  language-python"></code></pre>
+<p>`&gt;&gt;&gt; famille = [“Bart”, “Lisa”, “Maggie”]</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>famille.append(“Milhouse”)<br>
+famille<br>
+[‘Bart’, ‘Lisa’, ‘Maggie’, ‘Milhouse’]`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Remarques :</strong></p>
+<ul>
+<li>La méthode  <code>append()</code>  rajoute donc un élément  <strong>à la fin</strong>  de la liste.</li>
+<li>Dans  <strong>beaucoup</strong>  d’exercices, on part d’une liste vide  <code>[]</code>  que l’on remplit peu à peu avec des  <code>append()</code>.</li>
+<li><em>(HP)</em>  Il est possible d’insérer un élément à la position  <code>i</code>  avec la méthode  <code>insert</code>  :<pre class=" language-python"><code class="prism  language-python"> `<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Bart"</span><span class="token punctuation">,</span> <span class="token string">"Lisa"</span><span class="token punctuation">,</span> <span class="token string">"Maggie"</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Nelson"</span><span class="token punctuation">)</span> <span class="token comment"># on insère à la position 1</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille
+<span class="token punctuation">[</span><span class="token string">'Bart'</span><span class="token punctuation">,</span> <span class="token string">'Nelson'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">,</span> <span class="token string">'Maggie'</span><span class="token punctuation">]</span>` 
+</code></pre>
+</li>
+</ul>
+<p>Exercice 5</p>
+<p>Construire une liste contenant tous les nombres inférieurs à 100 qui sont divisibles par 7.</p>
+<p>Exercice 6</p>
+<p>On considère la liste  <code>temp = [4, -5, 8, 10, -1, -2, 7, 13]</code>.<br>
+Construire la liste  <code>temp_pos</code>  qui ne contient que les éléments positifs de  <code>temp</code>.</p>
+<h3 id="suppression-dun-élément-dune-liste-..">5.3 Suppression d’un élément d’une liste …</h3>
+<h4 id="par-la-méthode-remove">5.3.1 … par la méthode remove()[</h4>
+<p>Exemple fondateur n°7</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Bart'</span><span class="token punctuation">,</span> <span class="token string">'Nelson'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">,</span> <span class="token string">'Maggie'</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"Nelson"</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> famille
+<span class="token punctuation">[</span><span class="token string">'Bart'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">,</span> <span class="token string">'Maggie'</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p><strong>Remarques :</strong></p>
+<ul>
+<li>
+<p>Attention,  <code>remove</code>  n’enlève que la  <em>première occurrence</em>  de l’élément désigné. S’il y en a d’autres après, elles resteront dans la liste :</p>
+<p>`&gt;&gt;&gt; lst = [3, 1, 4, 5, 1, 9, 4]</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>lst.remove(4)<br>
+lst<br>
+[3, 1, 5, 1, 9, 4]`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>Si l’élément à supprimer n’est pas trouvé, un message d’erreur est renvoyé :</p>
+<p>`&gt;&gt;&gt; lst = [3, 1, 4, 5, 1, 9]</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>lst.remove(2)<br>
+Traceback (most recent call last):<br>
+File “”, line 1, in <br>
+ValueError: list.remove(x): x not in list`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h3 id="par-linstruction--del">5.3.2 … par l’instruction  <code>del</code></h3>
+<p>L’instruction  <code>del</code>  (qui n’est pas une fonction) permet de supprimer un élément en donnant son indice.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> maliste <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">del</span> maliste<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> maliste
+<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>`</p>
+<h2 id="construction-dune-liste-déléments-identiques">6. Construction d’une liste d’éléments identiques</h2>
+<p>Il est souvent pratique d’initialiser une liste de taille donnée, souvent en la remplissant de 0.</p>
+<p>Imaginons par exemple que nous souhaitions une liste de taille 26 remplie de 0. Il est possible de faire comme ceci :</p>
+<pre class=" language-python"><code class="prism  language-python">`lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    lst<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>` 
+</code></pre>
+<p>mais on préfèrera ce code :</p>
+<p>Exemple fondateur n°8</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">26</span>` 
+</code></pre>
+<p>qui produira la liste  <code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></p>
+<p>Exercice 7</p>
+<p>Que fait le code ci-dessous ?</p>
+<pre class=" language-python"><code class="prism  language-python">`texte <span class="token operator">=</span> <span class="token string">"cet texte est prodigieusement ennuyeux"</span>
+
+<span class="token keyword">def</span>  <span class="token function">rang</span><span class="token punctuation">(</span>lettre<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>lettre<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">97</span>
+
+compt <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">26</span>
+<span class="token keyword">for</span> lettre <span class="token keyword">in</span> texte <span class="token punctuation">:</span>
+    <span class="token keyword">if</span> lettre <span class="token operator">!=</span> <span class="token string">" "</span> <span class="token punctuation">:</span>
+        compt<span class="token punctuation">[</span>rang<span class="token punctuation">(</span>lettre<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>` 
+
+</code></pre>
+<h2 id="construction-dune-liste--en-compréhension">7. Construction d’une liste  <em>en compréhension</em></h2>
+<p>C’est une grande caractéristique du langage Python (même si ce n’est pas une exclusivité) : la méthode de liste en compréhension propose une manière élégante, rapide et naturelle pour créer des listes.</p>
+<h3 id="«en-compréhension»-pourquoi-">7.1 «en compréhension», pourquoi ?</h3>
+<p>Cette expression vient des mathématiques. On dit qu’on définit un sous-ensemble  <em>par compréhension</em>  lorsqu’on part d’un ensemble plus grand dont on ne garde que les éléments vérifiant une certaine propriété.</p>
+<p>On pourrait par exemple définir les élèves de Première NSI de cette manière :</p>
+<p><em>«élèves du lycée inscrits en classe de Première ayant choisi la spécialité NSI»</em></p>
+<p>On part d’un ensemble large (les élèves du lycée) qu’on va ensuite réduire par des caractérisations spécifiques : être un élève de Première, puis avoir choisi la spécialité NSI.</p>
+<h3 id="premier-exemple">7.2 Premier exemple</h3>
+<p>Exemple fondateur n°9</p>
+<p>Imaginons que nous possédons une liste  <code>data</code>  de températures, dont nous ne voulons garder que celles strictement supérieures à 20.</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> good <span class="token operator">=</span> <span class="token punctuation">[</span>t <span class="token keyword">for</span> t <span class="token keyword">in</span> data <span class="token keyword">if</span> t <span class="token operator">&gt;</span> <span class="token number">20</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> good
+<span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p><strong>Explications :</strong></p>
+<p><img src="https://glassus.github.io/premiere_nsi/T2_Representation_des_donnees/2.1_Listes/data/comp.png" alt="image"></p>
+<h4 id="le-filtre-éventuel">7.2.1 le filtre éventuel:</h4>
+<p>C’est lui qui donne tout son sens à cette méthode : il permet de ne garder que certaines valeurs. Il est pourtant éventuel : que se passe-t-il s’il n’y a pas de filtre ?</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> good <span class="token operator">=</span> <span class="token punctuation">[</span>t <span class="token keyword">for</span> t <span class="token keyword">in</span> data<span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> good
+<span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>On se retrouve évidemment avec une nouvelle liste qui contient exactement les éléments de la liste de départ, ce qui n’est pas très intéressant. Pourtant les listes en compréhension  <em>sans filtre</em>  sont très fréquentes, nous le verrons plus loin.</p>
+<p>Exercice 8</p>
+<p>On considère la variable  <code>phrase = 'Bonjour les vacances sont finies'</code>  et la variable  <code>voyelles = 'aeiouy'</code>.</p>
+<p>Construire en compréhension la liste  <code>liste_voyelles</code>  qui contient toutes les voyelles présentes dans la variable  <code>phrase</code>.</p>
+<h4 id="lensemble-de-départ">7.2.2 l’ensemble de départ:</h4>
+<p>C’est à partir de lui que va se construire notre liste. Pour l’instant, cet ensemble de départ a toujours été de type  <code>list</code>.</p>
+<p>Cet ensemble peut être aussi donné à partir de l’instruction  <code>range()</code>. Souvenons-nous de l’exercice 4 : «Construire une liste contenant tous les nombres inférieurs à 100 qui sont divisibles par 7.».</p>
+<p>Une solution possible était :</p>
+<p><code>lst = [] for n in range(1, 101): if n % 7 == 0: lst.append(n)</code></p>
+<p>Ce code peut maintenant s’écrire très simplement en une seule instruction :</p>
+<p>Exemple fondateur n°10</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst <span class="token operator">=</span> <span class="token punctuation">[</span>n <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">)</span> <span class="token keyword">if</span> n <span class="token operator">%</span> <span class="token number">7</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst
+<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">,</span> <span class="token number">63</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">77</span><span class="token punctuation">,</span> <span class="token number">84</span><span class="token punctuation">,</span> <span class="token number">91</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">]</span>` 
+</code></pre>
+<h4 id="la-valeur-à-garder">7.2.3 la valeur à garder:</h4>
+<p>Pour l’instant, nous avons procédé à des filtres sur des ensembles existants, sans modifier la valeur filtrée (la valeur  <em>à garder</em>).<br>
+Les listes en compréhension deviennent encore plus intéressantes lorsqu’on comprend qu’il est possible de modifier la valeur filtrée :</p>
+<p>Exemple fondateur n°11</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst_carres <span class="token operator">=</span> <span class="token punctuation">[</span>t<span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> lst_carres
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">81</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>Exercice 9</p>
+<p><strong>Q1.</strong>  On considère la fonction mathématique  . Coder la fonction  <code>f</code>.</p>
+<p><strong>Q2.</strong>  Créer (en compréhension) une liste contenant l’image des entiers de 1 à 10 par la fonction  .</p>
+<p>Exercice 10</p>
+<p>On considère la liste  <code>lst = [51, 52, 66, 91, 92, 82, 65, 53, 86, 42, 79, 95]</code>. Seuls les nombres entre 60 et 90 ont une signification : ce sont des codes ASCII correspondant à des lettres majuscules (récupérables par la fonction  <code>chr</code>  ).<br>
+Créer (en compréhension) une liste  <code>sol</code>  qui contient les lettres correspondants aux nombres ayant une signification.</p>
+<h2 id="un-phénomène-inquiétant--la-copie-de-liste">8. Un phénomène inquiétant : la copie de liste</h2>
+<p>une copie un peu trop parfaite</p>
+<p>Observez le code ci-dessous, réalisé sans trucage.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listA <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listB <span class="token operator">=</span> listA
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listA<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listB
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listB<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listA
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>Tout se passe comme si les listes  <code>listA</code>  et<code>listB</code>  étaient devenus des clones «synchronisés» depuis l’affectation  <code>listB = listA</code>.</p>
+<p>Analyse grâce à PythonTutor</p>
+<p>L’illustration de PythonTutor nous donne la clé de l’énigme :<img src="https://glassus.github.io/premiere_nsi/T2_Representation_des_donnees/2.1_Listes/data/tutor1.png" alt="image"></p>
+<p><code>listA</code>  et<code>listB</code>  sont en fait  <strong>un seul et même objet</strong>.</p>
+<p>Comment en avoir le cœur net ? En observant leur adresse-mémoire, disponible grâce à la fonction  <code>id</code>  :</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span>listA<span class="token punctuation">)</span>
+<span class="token number">140485841327616</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">id</span><span class="token punctuation">(</span>listB<span class="token punctuation">)</span>
+<span class="token number">140485841327616</span>` 
+</code></pre>
+<p>Ceci met en évidence que la métaphore du tiroir dont on se sert pour expliquer ce qu’est une variable est malheureusement inexacte. Une variable est une référence vers une adresse-mémoire. Si deux variables font référence à la même adresse-mémoire, alors elles sont totalement identiques: toute modification de l’une entraîne une modification de l’autre.</p>
+<h3 id="mais-alors-comment-copier-le-contenu-dune-liste-vers-une-autre-sans-créer-un-clone-">Mais alors, comment copier le contenu d’une liste vers une autre sans créer un clone ?</h3>
+<p>Exemple fondateur n°12</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listA <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> listB <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>listA<span class="token punctuation">)</span>` 
+</code></pre>
+<p>D’autres possibilités existent, comme  <code>listA.copy()</code>, ou encore  <code>listA[::]</code>…</p>
+<h2 id="tableaux-à-plusieurs-dimensions--listes-de-listes">9. Tableaux à plusieurs dimensions : listes de listes</h2>
+<p>Nous avons vu qu’une liste pouvait contenir des éléments de tous types : des entiers, des chaines des caractères… et pourquoi pas une liste qui contient des listes ?</p>
+<h3 id="syntaxe">9.1 Syntaxe:</h3>
+<p>Exemple fondateur n°12</p>
+<p>La liste  <code>tab</code>  ci-dessous est composée de 3 listes qui elles-mêmes contiennent trois nombres :</p>
+<pre class=" language-python"><code class="prism  language-python">`tab <span class="token operator">=</span>  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+        <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">]</span>` 
+
+<span class="token operator">-</span>   `tab<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>`
+<span class="token operator">-</span>   `tab<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">5</span>`
+<span class="token operator">-</span>   `tab<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">6</span>`
+<span class="token operator">-</span>   `tab<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>`
+</code></pre>
+<p>La liste  <code>a</code>  est composée de 3 éléments qui sont eux-même des listes de 3 éléments.</p>
+<p>Exercice 12</p>
+<p>On considère le jeu du Morpion (ou  <em>Tic-Tac-Toe</em>) dont la surface de jeu vierge est representée par le tableau :<br>
+<code>tab = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]</code></p>
+<p>Les premiers coups joués sont ceux-ci :</p>
+<ul>
+<li><code>tab[1][1] = 'X'</code></li>
+<li><code>tab[2][1] = 'O'</code></li>
+<li><code>tab[2][2] = 'X'</code></li>
+<li><code>tab[0][0] = 'O'</code></li>
+</ul>
+<p>Quel coup doit maintenant jouer le joueur  <code>'X'</code>  pour s’assurer la victoire ?</p>
+<h3 id="parcours-dune-liste-de-listes">9.2 Parcours d’une liste de listes</h3>
+<p>Exemple fondateur n°13</p>
+<ul>
+<li>
+<p>Parcours par éléments :</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">for</span> ligne <span class="token keyword">in</span> tab<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> elt <span class="token keyword">in</span> ligne<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>elt<span class="token punctuation">)</span>
+</code></pre>
+<p>`</p>
+</li>
+<li>
+<p>Parcours par indice :</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+       <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+           <span class="token keyword">print</span><span class="token punctuation">(</span>tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>` 
+</code></pre>
+<pre><code>`
+</code></pre>
+<p>Exercice 13</p>
+<p>On considère la liste  <code>m</code>  (comme  <em>matrice</em>) suivante :</p>
+<pre class=" language-python"><code class="prism  language-python">`m <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>`
+</code></pre>
+<p>Quelle est la somme de tous les nombres de la matrice  <code>m</code>  ?</p>
+<h1 id="ii.-tuples">II. Tuples:</h1>
+<p>Comme les listes, en Python les <strong>tuples</strong> sont des séquences ordonnées d’éléments (de n’importe quel type).</p>
+<p>▶ On les déclare avec des <strong>parenthèses</strong>:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"Gon"</span><span class="token punctuation">,</span> <span class="token string">"Kirua"</span><span class="token punctuation">,</span> <span class="token string">"Leolio"</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span>  <span class="token string">'tuple'</span><span class="token operator">&gt;</span>
+</code></pre>
+<p>▶ Comme ils sont ordonnés, on peut désigner les éléments du tuple <strong>par leur indice</strong>, comme une liste. La fonction <code>len</code> est également valable.</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token number">4</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token string">'Gon'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token number">128</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span>
+<span class="token number">3</span>` 
+</code></pre>
+<p>▶ Un tuple est un objet <em>iterable</em>, on peut donc le <strong>parcourir</strong>:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> nom <span class="token keyword">in</span> t2<span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>nom<span class="token punctuation">,</span> <span class="token string">"est un hunter"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+Gon est un hunter
+Kirua est un hunter
+Leolio est un hunter` 
+</code></pre>
+<h2 id="différence-entre-tuple-et-liste">Différence entre tuple et liste:</h2>
+<p>Un tuple est un objet <strong>non mutable</strong>, c’est-à-dire qu’on ne peut pas le modifier : ni réaffecter ses éléments, ni ajouter ou supprimer d’élément.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+File <span class="token string">"&lt;console&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
+TypeError<span class="token punctuation">:</span> <span class="token string">'tuple'</span> <span class="token builtin">object</span> does <span class="token operator">not</span> support item assignment
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+File <span class="token string">"&lt;console&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
+AttributeError<span class="token punctuation">:</span> <span class="token string">'tuple'</span> <span class="token builtin">object</span> has no attribute <span class="token string">'append'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> t<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+File <span class="token string">"&lt;console&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
+AttributeError<span class="token punctuation">:</span> <span class="token string">'tuple'</span> <span class="token builtin">object</span> has no attribute <span class="token string">'remove'</span>` 
+</code></pre>
+<h2 id="utilisation-dun-tuple">Utilisation d’un tuple</h2>
+<p>On se sert d’un tuple pour représenter une séquence de données <strong>qui n’a pas vocation à être modifiée au cours du programme</strong>, comme par exemple des constantes.</p>
+<p>On verra plus tard dans l’année une vertu du caractère non mutable de ce type d’objet.</p>
+<h2 id="fonction-renvoyant-plusieurs-valeurs">Fonction renvoyant plusieurs valeurs</h2>
+<p>Une fonction peut renvoyer plusieurs valeurs, séparées par des virgules.</p>
+<p>Le type de la valeur renvoyée sera alors un tuple.</p>
+<h3 id="exemple-de-fonction-renvoyant-le-maximum-dune-liste-et-son-indice">Exemple de fonction renvoyant le maximum d’une liste et son indice</h3>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">def</span>  maximum<span class="token punctuation">(</span>tab<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">:</span>
+    maxi <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>tab<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#parcours par indice obligatoire puisqu'on veut récupérer l'indice du maximum</span>
+        <span class="token keyword">if</span> tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> maxi<span class="token punctuation">:</span>
+            maxi <span class="token operator">=</span> tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            indice_maxi <span class="token operator">=</span> i
+    <span class="token keyword">return</span> maxi<span class="token punctuation">,</span> indice_maxi  <span class="token comment">#renvoi de plusieurs valeurs, sans forcément de parenthèses</span>
+</code></pre>
+<h3 id="utilisation-dans-le-shell">Utilisation dans le shell</h3>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> liste_exemple <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> resultat <span class="token operator">=</span> maximum<span class="token punctuation">(</span>liste_exemple<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> resultat
+<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">type</span><span class="token punctuation">(</span>resultat<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span>  <span class="token string">'tuple'</span><span class="token operator">&gt;</span>
+
+</code></pre>
+<h1 id="iii.-dictionnaires">III. Dictionnaires:</h1>
+<p>Jusqu’à présent, nous avons rencontré deux types de <strong>conteneurs</strong> (ou ensemble d’éléments) : les listes et les tuples. Ces deux types ont en commun le repérage de leurs éléments par un <em>indice</em>, qui est un nombre entier. Ces deux types sont <strong>ordonnés</strong>, on les appelle des <strong>séquences</strong>. L’indice est la <strong>clé</strong> qui permet d’accéder à un élément de l’ensemble.</p>
+<p>Prenons comme exemple un autre ensemble d’éléments: les numéros de téléphone sauvegardés dans l’application « Contacts » de votre smartphone. Ces numéros ne sont pas ordonnés, et ne sont pas repérables par un <em>indice</em>, mais (en général) par un nom.</p>
+<p>Grosso modo, le contenu de votre application « Contacts » est un ensemble d’associations <code>nom: numéro</code>. En Informatique, on parle de tableau associatif ou de <em>p-uplet nommé</em>: un ensemble de § valeurs appelées par un descripteur autre qu’un indice.</p>
+<p>En Python, on représentera ces <em>p-uplets nommés</em> par des <strong>dictionnaires</strong>.</p>
+<h2 id="définition-dun-dictionnaire-clés-et-valeurs">1. Définition d’un dictionnaire, clés et valeurs:</h2>
+<p>Le type <code>dict</code></p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"pap"</span><span class="token punctuation">:</span> <span class="token string">'0155551010'</span><span class="token punctuation">,</span> <span class="token string">"bénédicte"</span><span class="token punctuation">:</span> <span class="token string">'0516526600'</span><span class="token punctuation">,</span> <span class="token string">"christophe"</span><span class="token punctuation">:</span> <span class="token string">'0545974500'</span><span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>
+<p>Un dictionnaire (type <code>dict</code>) est une donnée composite qui n’est pas ordonnée (à la différence des listes !). Il fonctionne par un système de <code>clé: valeur</code>.</p>
+</li>
+<li>
+<p>Les clés, comme les valeurs, peuvent être de types différents.</p>
+</li>
+<li>
+<p>Un dictionnaire est délimité par des accolades, les associations <code>clé: valeur</code> séparées par des espaces.</p>
+</li>
+<li>
+<p>On accède à une valeur par sa clé :</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts<span class="token punctuation">[</span><span class="token string">"pap"</span><span class="token punctuation">]</span>
+<span class="token string">'0155551010'</span>
+</code></pre>
+<p>Méthodes <code>keys</code> et <code>values</code></p>
+<p>On peut lister les clés d’un dictionnaires:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dict_keys<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'pap'</span><span class="token punctuation">,</span> <span class="token string">'bénédicte'</span><span class="token punctuation">,</span> <span class="token string">'christophe'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>et ses valeurs:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dict_values<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'0155551010'</span><span class="token punctuation">,</span> <span class="token string">'0516526600'</span><span class="token punctuation">,</span> <span class="token string">'0545974500'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Ajout/modification/suppression d’éléments</p>
+<p>Pour modifier une valeur associée à une clé, on réaffecte la nouvelle valeur :</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts<span class="token punctuation">[</span><span class="token string">"pap"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0605040302'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts
+<span class="token punctuation">{</span><span class="token string">'pap'</span><span class="token punctuation">:</span> <span class="token string">'0605040302'</span><span class="token punctuation">,</span> <span class="token string">'bénédicte'</span><span class="token punctuation">:</span> <span class="token string">'0516526600'</span><span class="token punctuation">,</span> <span class="token string">'christophe'</span><span class="token punctuation">:</span> <span class="token string">'0545974500'</span><span class="token punctuation">}</span>
+</code></pre>
+<p>Si la clé n’existe pas, cela ajoute une paire <code>clé: valeur</code> au dictionnaire:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts<span class="token punctuation">[</span><span class="token string">"xavier"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0545387000'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts
+<span class="token punctuation">{</span><span class="token string">'pap'</span><span class="token punctuation">:</span> <span class="token string">'0605040302'</span><span class="token punctuation">,</span> <span class="token string">'bénédicte'</span><span class="token punctuation">:</span> <span class="token string">'0516526600'</span><span class="token punctuation">,</span> <span class="token string">'christophe'</span><span class="token punctuation">:</span> <span class="token string">'0545974500'</span><span class="token punctuation">,</span> <span class="token string">'xavier'</span><span class="token punctuation">:</span> <span class="token string">'0545387000'</span><span class="token punctuation">}</span>
+</code></pre>
+<p>La suppression d’une clé (et donc de sa valeur) se fait par le mot-clé <code>del</code>:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">del</span> contacts<span class="token punctuation">[</span><span class="token string">"pap"</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> contacts
+<span class="token punctuation">{</span><span class="token string">'bénédicte'</span><span class="token punctuation">:</span> <span class="token string">'0516526600'</span><span class="token punctuation">,</span> <span class="token string">'christophe'</span><span class="token punctuation">:</span> <span class="token string">'0545974500'</span><span class="token punctuation">,</span> <span class="token string">'xavier'</span><span class="token punctuation">:</span> <span class="token string">'0545387000'</span><span class="token punctuation">}</span>` 
+</code></pre>
+<h2 id="méthodes-sur-les-dictionnaires">2 Méthodes sur les dictionnaires:</h2>
+<p>Parcours d’un dictionnaire</p>
+<p>On utilise comme pour les listes une boucle <code>for</code> avec l’opérateur <code>in</code>. Cet opérateur <code>in</code> peut également tester l’appartenance d’une clé à un dictionnaire, hors d’un <code>for</code>.</p>
+<p>On parcourt par défaut sur les clés:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> nom <span class="token keyword">in</span> contacts<span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token keyword">print</span><span class="token punctuation">(</span>nom<span class="token punctuation">)</span>
+bénédicte
+christophe
+xavier
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> nom <span class="token keyword">in</span> contacts<span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"le numéro de {nom} est {contacts[nom]}"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+le numéro de bénédicte est <span class="token number">0516526600</span>
+le numéro de christophe est <span class="token number">0545974500</span>
+le numéro de xavier est <span class="token number">0545387000</span>` 
+</code></pre>
+<p>Il serait équivalent de faire <code>for nom in contacts.keys()</code>.</p>
+<p>On peut également parcourir le dictionnaire sur les valeurs, mais sans possibilité alors de récupérer la clé à partir de la valeur (puisque plusieurs clés peuvent avoir la même valeur).</p>
+<p>On utilisera pour cela:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> v <span class="token keyword">in</span> contacts<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token number">0516526600</span>
+<span class="token number">0545974500</span>
+<span class="token number">0545387000</span>` 
+</code></pre>
+<p>méthode avancée avec Items:</p>
+<p>Il peut être utile de parcourir à la fois sur les clés et sur les valeurs, c’est à dire sur l’élément complet <code>clé: valeur</code> du dictionnaire, notamment si on souhaite récupérer la clé associée à une valeur donnée.</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> contacts<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{v} est associé à {k}"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+<span class="token number">0516526600</span> est associé à bénédicte
+<span class="token number">0545974500</span> est associé à christophe
+<span class="token number">0545387000</span> est associé à xavier`
+</code></pre>
+<p>Création d’un dictionnaire vide et construction de dictionnaire</p>
+<p>Comme les listes, il est très fréquent qu’on ait besoin de construire le dictionnaire par ajouts successifs en partant d’un dictionnaire vide.</p>
+<p>On peut créer un dictionnaire vide de deux façons: <code>{}</code> ou <code>dict()</code>:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> dico <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> dico <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> chiffres <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'zéro'</span><span class="token punctuation">,</span> <span class="token string">'un'</span><span class="token punctuation">,</span> <span class="token string">'deux'</span><span class="token punctuation">,</span> <span class="token string">'trois'</span><span class="token punctuation">,</span> <span class="token string">'quatre'</span><span class="token punctuation">,</span> <span class="token string">'cinq'</span><span class="token punctuation">,</span> <span class="token string">'six'</span><span class="token punctuation">,</span> <span class="token string">'sept'</span><span class="token punctuation">,</span> <span class="token string">'huit'</span><span class="token punctuation">,</span> <span class="token string">'neuf'</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> chiffres<span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     dico<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> dico
+<span class="token punctuation">{</span><span class="token string">'zéro'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'un'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'deux'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'trois'</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'quatre'</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'cinq'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'six'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'sept'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'huit'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'neuf'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">}</span>` 
+</code></pre>
+<p>On peut bien évidemment créer un dictionnaire en compréhension (<strong>hors-programme</strong>). On peut résumer le code précédent en:</p>
+<pre class=" language-python"><code class="prism  language-python">`dico <span class="token operator">=</span> <span class="token punctuation">{</span>c<span class="token punctuation">:</span> <span class="token builtin">len</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> chiffres<span class="token punctuation">}</span>` 
+</code></pre>
+<p>Gaspard’s corner</p>
+<p>Pour récupérer les clés d’un dictionnaire en fonction de leur valeur, il n’y a pas d’autre moyen que de parcourir le dictionnaire et de sélectionner les clés dont la valeur est celle cherchée.</p>
+<p>Dans le dictionnaire <code>dico</code> de l’exemple précédent, si on cherche les clés dont la valeur est égale à 4 par exemple:</p>
+<pre class=" language-python"><code class="prism  language-python">`liste <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> cle <span class="token keyword">in</span> dico<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> dico<span class="token punctuation">[</span>cle<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        liste<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cle<span class="token punctuation">)</span>` 
+</code></pre>
+<p>ce qui donne:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> liste
+<span class="token punctuation">[</span><span class="token string">'zéro'</span><span class="token punctuation">,</span> <span class="token string">'deux'</span><span class="token punctuation">,</span> <span class="token string">'cinq'</span><span class="token punctuation">,</span> <span class="token string">'sept'</span><span class="token punctuation">,</span> <span class="token string">'huit'</span><span class="token punctuation">,</span> <span class="token string">'neuf'</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>Mieux, on écrit une fonction qui prend en paramètre un dictionnaire et une valeur (entière par exemple) à chercher, ainsi que quelques tests:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">def</span>  get_keys<span class="token punctuation">(</span>d<span class="token punctuation">:</span><span class="token builtin">dict</span><span class="token punctuation">,</span> v<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+    liste <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> cle <span class="token keyword">in</span> d<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> d<span class="token punctuation">[</span>cle<span class="token punctuation">]</span> <span class="token operator">==</span> v<span class="token punctuation">:</span>
+            liste<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cle<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> liste
+
+<span class="token keyword">assert</span> get_keys<span class="token punctuation">(</span>dico<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token string">'zéro'</span><span class="token punctuation">,</span> <span class="token string">'deux'</span><span class="token punctuation">,</span> <span class="token string">'cinq'</span><span class="token punctuation">,</span> <span class="token string">'sept'</span><span class="token punctuation">,</span> <span class="token string">'huit'</span><span class="token punctuation">,</span> <span class="token string">'neuf'</span><span class="token punctuation">]</span>
+<span class="token keyword">assert</span> get_keys<span class="token punctuation">(</span>dico<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token string">'un'</span><span class="token punctuation">]</span>
+<span class="token keyword">assert</span> get_keys<span class="token punctuation">(</span>dico<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">assert</span> get_keys<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>version par compréhension :<br>
+Puisqu’on a créé une liste par ajout successifs dans une liste vide en parcourant un <em>iterable</em> (le dictionnaire <code>dico</code>), on peut également la créer en compréhension…</p>
+<pre class=" language-python"><code class="prism  language-python">`liste <span class="token operator">=</span> <span class="token punctuation">[</span>cle <span class="token keyword">for</span> cle <span class="token keyword">in</span> dico <span class="token keyword">if</span> dico<span class="token punctuation">[</span>cle<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">]</span>` 
+</code></pre>
+<p>Et la fonction devient tout simplement:</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">def</span>  get_keys<span class="token punctuation">(</span>d<span class="token punctuation">:</span><span class="token builtin">dict</span><span class="token punctuation">,</span> v<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>cle <span class="token keyword">for</span> cle <span class="token keyword">in</span> d <span class="token keyword">if</span> d<span class="token punctuation">[</span>cle<span class="token punctuation">]</span> <span class="token operator">==</span> v<span class="token punctuation">]</span>
+</code></pre>
+<h2 id="bilan">3 Bilan</h2>
+<p>En résumé</p>
+<ul>
+<li><code>dico = dict()</code> crée un dictionnaire vide appelé <code>dico</code>,</li>
+<li><code>dico[cle] = contenu</code> met la valeur <code>contenu</code> pour la clé <code>cle</code> dans le dictionnaire <code>dico</code>,</li>
+<li><code>dico[cle]</code> renvoie la valeur associée à la clé <code>cle</code> dans le dictionnaire <code>dico</code>,</li>
+<li><code>cle in dico</code> renvoie un booléen indiquant si la clé <code>cle</code> est présente dans le dictionnaire <code>dico</code>.</li>
+<li><code>len(dico)</code> renvoie le nombre de clés d’un dictionnaire.</li>
+<li><code>for cle in dico:</code> permet d’itérer sur les clés d’un dictionnaire.</li>
+<li><code>for valeur in dico.values():</code> permet d’itérer sur les valeurs d’un dictionnaire.</li>
+<li><code>for cle, valeur in dico.items():</code> permet d’itérer sur les clés <strong>et</strong> les valeurs d’un dictionnaire.</li>
+</ul>
+<h1 id="iv.exercices">IV.Exercices:</h1>
+<h3 id="exercice-1">Exercice 1</h3>
+<p>On considère le contenu de mon dressing, représenté par un dictionnaire:</p>
+<pre class=" language-python"><code class="prism  language-python">`dressing <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"pantalons"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"pulls"</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">"tee-shirts"</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">}</span>
+</code></pre>
+<ol>
+<li>J’ai oublié mes 5 chemises… Ajoutez-les au dictionnaire <code>dressing</code>.</li>
+<li>Écrire une fonction (ou plutôt une <em>procédure</em>, pas de <strong>return</strong>) <code>ajout(habit)</code> qui prend en paramètre un type d’habit et qui augmente son nombre de 1 dans le dictionnaire.</li>
+<li>Améliorer la fonction pour qu’elle crée une nouvelle entrée si le type d’habit n’existe pas comme clé.</li>
+</ol>
+<h3 id="exercice-2">Exercice 2</h3>
+<p>On considère la liste suivante :</p>
+<pre class=" language-python"><code class="prism  language-python">`lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'5717'</span><span class="token punctuation">,</span> <span class="token string">'1133'</span><span class="token punctuation">,</span> <span class="token string">'5545'</span><span class="token punctuation">,</span> <span class="token string">'4031'</span><span class="token punctuation">,</span> <span class="token string">'6398'</span><span class="token punctuation">,</span> <span class="token string">'2734'</span><span class="token punctuation">,</span> <span class="token string">'3070'</span><span class="token punctuation">,</span> <span class="token string">'1346'</span><span class="token punctuation">,</span> <span class="token string">'7849'</span><span class="token punctuation">,</span> <span class="token string">'7288'</span><span class="token punctuation">,</span> <span class="token string">'7587'</span><span class="token punctuation">,</span> <span class="token string">'6217'</span><span class="token punctuation">,</span> <span class="token string">'8240'</span><span class="token punctuation">,</span> <span class="token string">'5733'</span><span class="token punctuation">,</span> <span class="token string">'6466'</span><span class="token punctuation">,</span> <span class="token string">'7972'</span><span class="token punctuation">,</span> <span class="token string">'7341'</span><span class="token punctuation">,</span> <span class="token string">'6616'</span><span class="token punctuation">,</span> <span class="token string">'5061'</span><span class="token punctuation">,</span> <span class="token string">'2441'</span><span class="token punctuation">,</span> <span class="token string">'2571'</span><span class="token punctuation">,</span> <span class="token string">'4496'</span><span class="token punctuation">,</span> <span class="token string">'4831'</span><span class="token punctuation">,</span> <span class="token string">'5395'</span><span class="token punctuation">,</span> <span class="token string">'8584'</span><span class="token punctuation">,</span> <span class="token string">'3033'</span><span class="token punctuation">,</span> <span class="token string">'6266'</span><span class="token punctuation">,</span> <span class="token string">'2452'</span><span class="token punctuation">,</span> <span class="token string">'6909'</span><span class="token punctuation">,</span> <span class="token string">'3021'</span><span class="token punctuation">,</span> <span class="token string">'5404'</span><span class="token punctuation">,</span> <span class="token string">'3799'</span><span class="token punctuation">,</span> <span class="token string">'5053'</span><span class="token punctuation">,</span> <span class="token string">'8096'</span><span class="token punctuation">,</span> <span class="token string">'2488'</span><span class="token punctuation">,</span> <span class="token string">'8519'</span><span class="token punctuation">,</span> <span class="token string">'6896'</span><span class="token punctuation">,</span> <span class="token string">'7300'</span><span class="token punctuation">,</span> <span class="token string">'5914'</span><span class="token punctuation">,</span> <span class="token string">'7464'</span><span class="token punctuation">,</span> <span class="token string">'5068'</span><span class="token punctuation">,</span> <span class="token string">'1386'</span><span class="token punctuation">,</span> <span class="token string">'9898'</span><span class="token punctuation">,</span> <span class="token string">'8313'</span><span class="token punctuation">,</span> <span class="token string">'1072'</span><span class="token punctuation">,</span> <span class="token string">'1441'</span><span class="token punctuation">,</span> <span class="token string">'7333'</span><span class="token punctuation">,</span> <span class="token string">'5691'</span><span class="token punctuation">,</span> <span class="token string">'6987'</span><span class="token punctuation">,</span> <span class="token string">'5255'</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Quel est le <strong>chiffre</strong> qui revient le plus fréquemment dans cette liste ?</p>
+<h3 id="exercice-3">Exercice 3</h3>
+<p>On modélise des informations (nom, taille et poids) sur des Pokémons de la façon suivante:</p>
+<pre class=" language-python"><code class="prism  language-python">`exemple_pokemons <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Bulbizarre'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'Herbizarre'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'Abo'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'Jungko'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">170</span><span class="token punctuation">,</span> <span class="token number">52</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>Par exemple, <code>Bulbizarre</code> est un pokémon qui mesure 70 cm et pèse 7 kg.</p>
+<ol>
+<li>Ajouer le pokémon <code>Goupix</code> qui mesure 60 cm et pèse 10 kg.</li>
+<li>Compléter la fonction <code>plus_grand</code> qui prend en paramètre un dictionnaire et qui renvoie un tuple contenant le nom du pokemon le plus grand et sa taille.</li>
+</ol>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token keyword">def</span>  plus_grand<span class="token punctuation">(</span>pokemons<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">:</span>
+    nom_plus_grand <span class="token operator">=</span> <span class="token string">''</span>
+    taille_max <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span>  <span class="token keyword">in</span> pokemons<span class="token punctuation">.</span> <span class="token punctuation">:</span>
+        <span class="token keyword">if</span>     <span class="token operator">&gt;</span> taille_max<span class="token punctuation">:</span>
+            nom_plus_grand <span class="token operator">=</span>
+            taille_max <span class="token operator">=</span> 
+    <span class="token keyword">return</span>
+</code></pre>
+<h3 id="exercice-5">Exercice 5</h3>
+<p>Voici un dictionnaire <code>dates</code> dont les clés sont des prénoms au format <code>str</code> et les valeurs des dates de naissance au format <code>tuple</code>.</p>
+<pre class=" language-python"><code class="prism  language-python">`dates <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"Alan"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1912</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Grace"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">1906</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Linus"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">1969</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Guido"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1956</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Ada"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">1815</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Tim"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1955</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Dennis"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1941</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Hedy"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">1914</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"Steve"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1955</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>Par exemple, Linus est né le 28 décembre 1969.</p>
+<ol>
+<li>
+<p>Ajouter les deux entrées suivantes: Margaret, née le 17 août 1936 et John, né le 28 décembre 1903.</p>
+</li>
+<li>
+<p>Écrire une fonction <code>calendrier</code> qui prend en paramètre un dictionnaire constitué d’entrées <code>nom: (jour, mois, année)</code> comme <code>dates</code> et qui renvoie un dictionnaire dont les clés sont les mois de l’année et les valeurs les listes des noms nés ce mois-là. Par exemple, <code>calendrier(dates)</code> doit renvoyer un dictionnaire contenant l’entrée <code>"juin": ["Alan", "Tim"]</code>.</p>
+</li>
+<li>
+<p>Écrire une fonction <code>plus_jeune</code> qui renvoie le nom de la personne la plus jeune du dictionnaire.</p>
+</li>
+</ol>
+<h3 id="exercice-6">Exercice 6</h3>
+<p>Voici un dictionnaire Python:</p>
+<pre class=" language-python"><code class="prism  language-python">`dico <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'L'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'M'</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token string">'R'</span><span class="token punctuation">:</span> <span class="token string">'M'</span><span class="token punctuation">,</span> <span class="token string">'CA'</span><span class="token punctuation">:</span> <span class="token string">'T'</span><span class="token punctuation">,</span> <span class="token string">'GR'</span><span class="token punctuation">:</span> <span class="token string">'EP'</span><span class="token punctuation">,</span> <span class="token string">'HE'</span><span class="token punctuation">:</span> <span class="token string">'AD'</span><span class="token punctuation">,</span> <span class="token string">'CH'</span><span class="token punctuation">:</span> <span class="token string">'MOD'</span><span class="token punctuation">}</span>` 
+</code></pre>
+<p><strong>À l’aide d’un parcours du dictionnaire</strong>, créer le dictionnaire «inversé», c’est-à-dire en échangeant clés et valeurs.</p>
+<h3 id="exercice-7">Exercice 7</h3>
+<p>Ci-dessous, un célèbre texte a été écrit en [code morse]. Décodez le!</p>
+<pre class=" language-python"><code class="prism  language-python">texte_morse <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+-- .- .. ... ...- --- ..- ... ... .- ...- . --.. -- --- .. .--- . -. .
+-.-. .-. --- .. ... .--. .- ... --.- ..- .. .-.. -.-- .- .. - -.. . -... ---
+-. -. . --- ..- -.. . -- .- ..- ...- .- .. ... . ... .. - ..- .-
+- .. --- -. -- --- .. ... .. .--- . -.. . ...- .- .. ... .-. . ...
+..- -- . .-. -- .- ...- .. . .- ..- .--- --- ..- .-. -.. .... ..- .. .-
+...- . -.-. ...- --- ..- ... .--- . -.. .. .-. .- .. ... --.- ..- . -.-. .
+... - -.. .- -... --- .-. -.. -.. . ... .-. . -. -.-. --- -. - .-. .
+... -.. . ... --. . -. ... --.- ..- .. -- --- -. - - . -. -.. ..-
+.-.. .- -- .- .. -. .--. . ..- - . - .-. . .- ..- -. -- --- --
+. -. - --- ..- .--- . -. . .--. --- ..- ...- .- .. ... .--. .- ... ---
+..- .--- . - .- .. ... ... . ..- .-.. -.-. .... . --.. -- --- .. . -
+-.-. . ... - .- ... ... . --.. -.-. ..- .-. .. . ..- -..- -.. . ... .
+-.. .. .-. . --.- ..- . .-.. . ... .... .- ... .- .-. -.. ... .-.. . ...
+.-. . -. -.-. --- -. - .-. . ... ..-. --- .-. --. . -. - ..- -. .
+-.. . ... - .. -. . . .--. .- .-. -.-. . --.- ..- . --.- ..- .- -.
+-.. --- -. .- .-.. . --. --- ..- - -.. . .-.. .- -.-. .... --- ... . --.-
+..- .- -. -.. --- -. .- .-.. . --. --- ..- - -.. . .-.. .- -.-. .... ---
+... . -... .. . -. ..-. .- .. - . .-.. . -... . .- ..- --. . ...
+- . .--. .- .-. ..-. --- .. ... --- -. -. . - .-. --- ..- ...- . .--.
+.- ... .-.. .. -. - . .-. .-.. --- -.-. ..- - . ..- .-. . -. ..-. .-
+-.-. . .--- . -.. .. .-. .- .. ... .-.. . -- .. .-. --- .. .-. --.- ..-
+.. ...- --- ..- ... .- .. -.. . .- .- ...- .- -. -.-. . .-. .- .-.. ---
+.-. ... -.-. . -. . ... - .--. .- ... -- --- -. -.-. .- ... -.-. --- --
+-- . .--- . .-.. . -.. .. ... .- .. ... .-.. .- .--. ..- .. ... --.- ..-
+. -- --- .. .- ..- -.-. --- -. - .-. .- .. .-. . .--- .- .. .--. ..-
+. - .--- . -.. .. ... -- . .-. -.-. .. .- .-.. .- ...- .. . .--- .
+.-.. ..- .. -.. .. ... -- . .-. -.-. .. .--- . -.-. .... .- -. - . .-..
+.- ...- .. . .--- . -.. .- -. ... . .-.. .- ...- .. . .--- . -. .
+... ..- .. ... --.- ..- .- -- --- ..- .-. . - ..-. .. -. .- .-.. . --
+. -. - --.- ..- .- -. -.. -... . .- ..- -.-. --- ..- .--. -.. . --. .
+-. ... .- ..- .--- --- ..- .-. -.. .... ..- .. -- . -.. .. ... . -. -
+-- .- .. ... -.-. --- -- -- . -. - ..-. .- .. ... - ..- .--. --- ..-
+.-. .- ...- --- .. .-. -.-. . - - . .... ..- -- .- -. .. - . .
+.... -... .. . -. .--- . .-.. . ..- .-. .-. . .--. --- -. -.. ... - .-.
+. ... ... .. -- .--. .-.. . -- . -. - .--- . .-.. . ..- .-. -.. ..
+... --.- ..- . -.-. . ... - -.-. . --. --- ..- - -.. . .-.. .- -- ---
+..- .-. -.-. . --. --- ..- - -.. --- -. -.-. --.- ..- .. -- .- .--. --- ..-
+... ... . .- ..- .--- --- ..- .-. -.. .... ..- .. .- . -. - .-. . .--.
+.-. . -. -.. .-. . ..- -. . -.-. --- -. ... - .-. ..- -.-. - .. ---
+-. -- . -.-. .- -. .. --.- ..- . -- .- .. ... -.. . -- .- .. -.
+--.- ..- .. ... .- .. - .--. . ..- - . - .-. . ... .. -- .--. .-..
+. -- . -. - .- -- . -- . - - .-. . .- ..- ... . .-. ...-
+.. -.-. . -.. . .-.. .- -.-. --- -- -- ..- -. .- ..- - . .- ..-. .-
+.. .-. . .-.. . -.. --- -. .-.. . -.. --- -. -.. . ... --- ..
+"""</span>` 
+</code></pre>
+<h3 id="exercice-8">Exercice 8</h3>
+<p>L’ARN contient le codage des protéines, composées de chaines d’acides aminés.</p>
+<p>Le dictionnaire ci-dessous donne les correspondances entre les codons, des séquences d’ARN constitués de trois nucléotides, et les acides aminés.</p>
+<p>La séquence AUG, par exemple, correspond à la méthionine, notée M.</p>
+<pre class=" language-python"><code class="prism  language-python">`dico_gen <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'UUU'</span><span class="token punctuation">:</span> <span class="token string">'F'</span><span class="token punctuation">,</span> <span class="token string">'UUC'</span><span class="token punctuation">:</span> <span class="token string">'F'</span><span class="token punctuation">,</span> <span class="token string">'UUG'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'UUA'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'UCU'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span>
+    <span class="token string">'UCC'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'UCG'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'UCA'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'UAU'</span><span class="token punctuation">:</span> <span class="token string">'Y'</span><span class="token punctuation">,</span> <span class="token string">'UAC'</span><span class="token punctuation">:</span> <span class="token string">'Y'</span><span class="token punctuation">,</span>
+    <span class="token string">'UAG'</span><span class="token punctuation">:</span> <span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token string">'UAA'</span><span class="token punctuation">:</span> <span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token string">'UGU'</span><span class="token punctuation">:</span> <span class="token string">'C'</span><span class="token punctuation">,</span> <span class="token string">'UGC'</span><span class="token punctuation">:</span> <span class="token string">'C'</span><span class="token punctuation">,</span> <span class="token string">'UGG'</span><span class="token punctuation">:</span> <span class="token string">'W'</span><span class="token punctuation">,</span>
+    <span class="token string">'UGA'</span><span class="token punctuation">:</span> <span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token string">'CUU'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'CUC'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'CUG'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'CUA'</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span>
+    <span class="token string">'CCU'</span><span class="token punctuation">:</span> <span class="token string">'P'</span><span class="token punctuation">,</span> <span class="token string">'CCC'</span><span class="token punctuation">:</span> <span class="token string">'P'</span><span class="token punctuation">,</span> <span class="token string">'CCG'</span><span class="token punctuation">:</span> <span class="token string">'P'</span><span class="token punctuation">,</span> <span class="token string">'CCA'</span><span class="token punctuation">:</span> <span class="token string">'P'</span><span class="token punctuation">,</span> <span class="token string">'CGU'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span>
+    <span class="token string">'CGC'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span> <span class="token string">'CGG'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span> <span class="token string">'CGA'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span> <span class="token string">'CAU'</span><span class="token punctuation">:</span> <span class="token string">'H'</span><span class="token punctuation">,</span> <span class="token string">'CAC'</span><span class="token punctuation">:</span> <span class="token string">'H'</span><span class="token punctuation">,</span>
+    <span class="token string">'CAG'</span><span class="token punctuation">:</span> <span class="token string">'Q'</span><span class="token punctuation">,</span> <span class="token string">'CAA'</span><span class="token punctuation">:</span> <span class="token string">'Q'</span><span class="token punctuation">,</span> <span class="token string">'ACU'</span><span class="token punctuation">:</span> <span class="token string">'T'</span><span class="token punctuation">,</span> <span class="token string">'ACC'</span><span class="token punctuation">:</span> <span class="token string">'T'</span><span class="token punctuation">,</span> <span class="token string">'ACG'</span><span class="token punctuation">:</span> <span class="token string">'T'</span><span class="token punctuation">,</span>
+    <span class="token string">'ACA'</span><span class="token punctuation">:</span> <span class="token string">'T'</span><span class="token punctuation">,</span> <span class="token string">'AUG'</span><span class="token punctuation">:</span> <span class="token string">'M'</span><span class="token punctuation">,</span> <span class="token string">'AUU'</span><span class="token punctuation">:</span> <span class="token string">'I'</span><span class="token punctuation">,</span> <span class="token string">'AUC'</span><span class="token punctuation">:</span> <span class="token string">'I'</span><span class="token punctuation">,</span> <span class="token string">'AUA'</span><span class="token punctuation">:</span> <span class="token string">'I'</span><span class="token punctuation">,</span>
+    <span class="token string">'AAU'</span><span class="token punctuation">:</span> <span class="token string">'N'</span><span class="token punctuation">,</span> <span class="token string">'AAC'</span><span class="token punctuation">:</span> <span class="token string">'N'</span><span class="token punctuation">,</span> <span class="token string">'AAG'</span><span class="token punctuation">:</span> <span class="token string">'K'</span><span class="token punctuation">,</span> <span class="token string">'AAA'</span><span class="token punctuation">:</span> <span class="token string">'K'</span><span class="token punctuation">,</span> <span class="token string">'AGU'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span>
+    <span class="token string">'AGC'</span><span class="token punctuation">:</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'AGG'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span> <span class="token string">'AGA'</span><span class="token punctuation">:</span> <span class="token string">'R'</span><span class="token punctuation">,</span> <span class="token string">'GUU'</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token string">'GUC'</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span>
+    <span class="token string">'GUG'</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token string">'GUA'</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token string">'GCU'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'GCC'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'GCG'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+    <span class="token string">'GCA'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'GGU'</span><span class="token punctuation">:</span> <span class="token string">'G'</span><span class="token punctuation">,</span> <span class="token string">'GGC'</span><span class="token punctuation">:</span> <span class="token string">'G'</span><span class="token punctuation">,</span> <span class="token string">'GGG'</span><span class="token punctuation">:</span> <span class="token string">'G'</span><span class="token punctuation">,</span> <span class="token string">'GGA'</span><span class="token punctuation">:</span> <span class="token string">'G'</span><span class="token punctuation">,</span>
+    <span class="token string">'GAU'</span><span class="token punctuation">:</span> <span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'GAC'</span><span class="token punctuation">:</span> <span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'GAG'</span><span class="token punctuation">:</span> <span class="token string">'E'</span><span class="token punctuation">,</span> <span class="token string">'GAA'</span><span class="token punctuation">:</span> <span class="token string">'E'</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>Écrire une fonction <code>traduction</code> qui traduit une chaine d’ARN en protéine. On suppose que la longueur de la chaine d’ARN est un multiple de trois. Ainsi, <code>traduction('UUCAGUGGG')</code> renverra <code>'FSG'</code>.</p>
+<h3 id="exercice-9-épreuve-pratique">Exercice 9 (Épreuve pratique)</h3>
+<p>Écrire une fonction <code>min_et_max</code> qui prend en paramètre un tableau de nombres <code>tab</code> non vide, et qui renvoie la plus petite et la plus grande valeur du tableau sous la forme d’un dictionnaire à deux clés <code>min</code> et <code>max</code>.</p>
+<p>Les tableaux seront représentés sous forme de liste Python.</p>
+<p>L’utilisation des fonctions natives <code>min</code>, <code>max</code> et <code>sorted</code>, ainsi que la méthode <code>sort</code> n’est pas autorisée.</p>
+<p>Exemples :</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> min_et_max<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'min'</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> min_et_max<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'min'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> min_et_max<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'min'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> min_et_max<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'min'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> min_et_max<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'min'</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span>` 
+</code></pre>
+<h3 id="exercice-10-bac--jour-suivant-au-format-jour-j-m-a">Exercice 10 (BAC) : Jour suivant au format <code>(jour, j, m, a)</code></h3>
+<p>On dispose des listes <code>jours</code>, <code>mois</code> et <code>duree_mois</code> suivants :</p>
+<pre class=" language-python"><code class="prism  language-python">jours <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"dimanche"</span><span class="token punctuation">,</span> <span class="token string">"lundi"</span><span class="token punctuation">,</span> <span class="token string">"mardi"</span><span class="token punctuation">,</span> <span class="token string">"mercredi"</span><span class="token punctuation">,</span> <span class="token string">"jeudi"</span><span class="token punctuation">,</span> <span class="token string">"vendredi"</span><span class="token punctuation">,</span> <span class="token string">"samedi"</span><span class="token punctuation">]</span>
+
+mois <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">"janvier"</span><span class="token punctuation">,</span> <span class="token string">"février"</span><span class="token punctuation">,</span> <span class="token string">"mars"</span><span class="token punctuation">,</span> <span class="token string">"avril"</span><span class="token punctuation">,</span>
+    <span class="token string">"mai"</span><span class="token punctuation">,</span> <span class="token string">"juin"</span><span class="token punctuation">,</span> <span class="token string">"juillet"</span><span class="token punctuation">,</span> <span class="token string">"aout"</span><span class="token punctuation">,</span>
+    <span class="token string">"septembre"</span><span class="token punctuation">,</span> <span class="token string">"octobre"</span><span class="token punctuation">,</span> <span class="token string">"novembre"</span><span class="token punctuation">,</span> <span class="token string">"décembre"</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+duree_mois <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">]</span>` 
+</code></pre>
+<blockquote>
+<p>Pour un indice <code>i</code> de 0 à 11, <code>mois[i]</code> et <code>duree_mois[i]</code> indiquent le nom et la durée du mois d’<strong>indice</strong> <code>i</code>. On considèrera donc dans cet exercice que tous les mois de février durent 28 jours.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>a.</strong> À partir de la liste <code>jours</code>, comment obtenir l’élément <code>"lundi"</code> ?</p>
+<p><strong>b.</strong> Que renvoie l’instruction <code>jours[18 % 7]</code> ?</p>
+</li>
+<li>
+<p>On rappelle que <code>jours.index(element)</code> renvoie l’indice de <code>element</code> dans la liste <code>jours</code>.</p>
+<p>Par exemple, <code>jours.index("mercredi")</code> renvoie <code>3</code>.</p>
+<p>Le nom du jour actuel est stocké dans une variable <code>nom_jour</code> (par exemple : <code>nom_jour = "mardi"</code>).</p>
+<p>Recopier et compléter l’instruction suivante permettant d’obtenir l’<strong>indice</strong> du jour de la semaine <code>n</code> jours plus tard :</p>
+<pre class=" language-python"><code class="prism  language-python">indice_jour <span class="token operator">=</span> <span class="token punctuation">(</span>jours<span class="token punctuation">.</span>index<span class="token punctuation">(</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+</li>
+<li>
+<p><strong>a.</strong> À partir de la liste <code>mois</code>, comment obtenir le nombre de jours du mois de mars ?</p>
+<p><strong>b.</strong> Les mois sont <strong>numérotés</strong> de 1 pour janvier à 12 pour décembre. Sachant que le <strong>numéro</strong> du mois actuel est stocké dans une variable <code>numero_mois</code>, écrire le code permettant d’obtenir le nom du mois qu’il sera <code>x</code> mois plus tard à partir de la liste <code>mois</code>.</p>
+<p>Par exemple :</p>
+<ul>
+<li>Avec <code>numero_mois = 4</code> et <code>x = 5</code>, on doit obtenir <code>"septembre"</code>.</li>
+<li>Avec <code>numero_mois = 8</code> et <code>x = 4</code>, on doit obtenir <code>"décembre"</code>.</li>
+<li>Avec <code>numero_mois = 10</code> et <code>x = 3</code>, on doit obtenir <code>"janvier"</code>.</li>
+</ul>
+<p>Il est important d’enlever 1 au <strong>numéro</strong>, pour travailler avec l’indice qui commence à zéro.</p>
+</li>
+<li>
+<p>On définit une date comme un tuple :</p>
+<p><code>(nom_jour, numero_jour, numero_mois, annee)</code></p>
+<p><strong>a.</strong> Par exemple, pour stocker la date du samedi 21 octobre 1995, on exécute <code>date = ("samedi", 21, 10, 1995)</code>. On peut alors extraire les champs de valeurs avec <code>nom_jour, numero_jour, numero_mois, annee = date</code>. Que renvoie alors l’instruction <code>mois[numero_mois - 1]</code> ?</p>
+<p><strong>b.</strong> Écrire une fonction <code>jour_suivant</code> qui prend en paramètre une <code>date</code> sous forme de tuple et qui renvoie un tuple désignant la <code>date</code> du lendemain.</p>
+<p>Par exemple</p>
+<pre class=" language-python"><code class="prism  language-python">`<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> jour_suivant<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"samedi"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1995</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">"dimanche"</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1995</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> jour_suivant<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"mardi"</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1995</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">"mercredi"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">1995</span><span class="token punctuation">)</span>` 
+</code></pre>
+<blockquote>
+<p>Rappel : on ne tient pas compte des années bissextiles et on considère que le mois de février comporte toujours 28 jours.<br>
+`</p>
+</blockquote>
+</li>
+</ol>
+
+    </div>
+  </div>
+</body>
+
+</html>
