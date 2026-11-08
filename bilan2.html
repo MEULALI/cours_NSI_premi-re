@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>memo</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#mémo--visuel">MÉMO  VISUEL</a>
+<ul>
+<li><a href="#opérations-sur-les-dictionnaires">Opérations sur les dictionnaires</a></li>
+<li><a href="#opérations-sur-les-tuples">Opérations sur les tuples</a></li>
+<li><a href="#caractéristiques-des-types">Caractéristiques des types</a></li>
+<li><a href="#opérations-sur-les-séquences">Opérations sur les séquences</a></li>
+<li><a href="#opérations-sur-les-listes">Opérations sur les listes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="mémo--visuel">MÉMO  VISUEL</h1>
+<h2 id="opérations-sur-les-dictionnaires">Opérations sur les dictionnaires</h2>
+
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s[k]</code></td>
+<td>Renvoie la valeur associée à la clé k</td>
+</tr>
+<tr>
+<td><code>x in s.values()</code></td>
+<td>Renvoie True si une valeur de s est égale à x, False sinon</td>
+</tr>
+<tr>
+<td><code>x not in s.values()</code></td>
+<td>Renvoie True si aucune valeur de s n’est égale à x, False sinon</td>
+</tr>
+<tr>
+<td><code>x in s.keys()</code></td>
+<td>Renvoie True si une clé de s est égale à x, False sinon</td>
+</tr>
+<tr>
+<td><code>s[k] = v</code></td>
+<td>Modifie la valeur v associée à la clé k ou l’ajoute si elle n’existe pas déjà</td>
+</tr>
+<tr>
+<td><code>s.get(k, v)</code></td>
+<td>Renvoie la valeur associée à la clé k. Si la clé k n’existe pas, renvoie la valeur v</td>
+</tr>
+<tr>
+<td><code>s.pop(k)</code></td>
+<td>Enlève du dictionnaire la clé k et renvoie la valeur associée</td>
+</tr>
+</tbody>
+</table><h2 id="opérations-sur-les-tuples">Opérations sur les tuples</h2>
+
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x in s</code></td>
+<td>Renvoie True si un élément de s (une des clés de s pour un dict) est égal à x, False sinon</td>
+</tr>
+<tr>
+<td><code>x not in s</code></td>
+<td>Renvoie True si aucun élément de s (aucune des clés de s pour un dict) n’est égal à x, False sinon</td>
+</tr>
+<tr>
+<td><code>len(s)</code></td>
+<td>Renvoie le nombre d’éléments de s</td>
+</tr>
+<tr>
+<td><code>s == s1</code></td>
+<td>Renvoie True si s et s1 sont de même type, ont la même longueur, et ont des éléments égaux 2 à 2</td>
+</tr>
+</tbody>
+</table><h2 id="caractéristiques-des-types">Caractéristiques des types</h2>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Mutable</th>
+<th>Itérable</th>
+<th>Séquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>non</td>
+<td>non</td>
+<td>non</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>non</td>
+<td>non</td>
+<td>non</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>non</td>
+<td>non</td>
+<td>non</td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>non</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>oui</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td><code>tuple</code></td>
+<td>non</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td><code>dict</code></td>
+<td>oui</td>
+<td>oui</td>
+<td>non</td>
+</tr>
+</tbody>
+</table><h2 id="opérations-sur-les-séquences">Opérations sur les séquences</h2>
+
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s[i]</code></td>
+<td>Renvoie l’élément d’indice i de s, le premier élément a pour indice 0</td>
+</tr>
+<tr>
+<td><code>s[i:j]</code></td>
+<td>Renvoie une partie de s de l’indice i à j non inclus</td>
+</tr>
+<tr>
+<td><code>s.index(x)</code></td>
+<td>Renvoie l’indice de la première apparition de x dans s</td>
+</tr>
+<tr>
+<td><code>s.count(x)</code></td>
+<td>Renvoie le nombre d’apparitions de x dans s</td>
+</tr>
+<tr>
+<td><code>s + t</code></td>
+<td>Renvoie une nouvelle séquence (liste ou tuple), concaténation de s et t (qui doit avoir le même type que s)</td>
+</tr>
+</tbody>
+</table><h2 id="opérations-sur-les-listes">Opérations sur les listes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s.append(x)</code></td>
+<td>Ajoute l’élément x à la fin de la liste s</td>
+</tr>
+<tr>
+<td><code>s[i] = x</code></td>
+<td>Modifie la liste et affecte la valeur x à la case d’indice i (qui doit auparavant exister)</td>
+</tr>
+<tr>
+<td><code>s.insert(i, v)</code></td>
+<td>Insère l’élément x dans s de façon à ce qu’il ait l’indice i et décale les éléments suivants</td>
+</tr>
+<tr>
+<td><code>s.remove(x)</code></td>
+<td>Supprime de la liste le premier élément dont la valeur est égale à x</td>
+</tr>
+<tr>
+<td><code>s.pop(i)</code></td>
+<td>Enlève de la liste l’élément à la position i et renvoie sa valeur (si on ne donne pas i, c’est le dernier élément qui est supprimé et renvoyé)</td>
+</tr>
+</tbody>
+</table><p><em>Représentation des données, types construits</em></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
